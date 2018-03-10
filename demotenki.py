@@ -6,8 +6,6 @@ import datetime
 import pyodbc
 from password.password import *
 
-hdb_auth = "Basic U1lTVEVNOlljcnptODkxWWNyem04OTE="
-
 authorization = lnetatmo.ClientAuth(
     clientId = NETA_ID,
     clientSecret = NETA_PW,
@@ -50,7 +48,7 @@ outdoors_humi = str(outdoors_humi)
 # print(posttime)
 
 head = {
-        'Authorization':hdb_auth,
+        'Authorization':HDB_AUTH,
         'Content-Type':'application/json; charset=utf-8'
     }
 
@@ -64,29 +62,23 @@ json_data = json.dumps(obj).encode('utf-8')
 
 print(json_data)
 
-#r = requests.post(
-#    'https://demoapps0018067025trial.hanatrial.ondemand.com/xs_demo/tenkidemo.xsodata/TENKI_DEMO',
-#    headers=head,
-#    data=json_data)
-
-#print(r)
-#print(r.text)
+# HANAへのデータ追加（廃止）
+# r = requests.post(
+#     XSODATA_URL,
+#     headers=head,
+#     data=json_data)
+# print(r)
+# print(r.text)
 
 # Open Weather Mapからのデータ取得
 
 # 東京
-# response_owm1 = requests.get(
-#     'https://api.openweathermap.org/data/2.5/weather?q=tokyo&units=metric&appid=ed3613141a9cfecc4d23ace1b572a821')
 response_owm1 = requests.get(TOKYO_WEATHER_URL)
 
 # 埼玉
-# response_owm2 = requests.get(
-#     'https://api.openweathermap.org/data/2.5/weather?q=saitama&units=metric&appid=ed3613141a9cfecc4d23ace1b572a821')
 response_owm2 = requests.get(SAITAMA_WEATHER_URL)
 
 # 札幌
-# response_owm3 = requests.get(
-#     'https://api.openweathermap.org/data/2.5/weather?q=Sapporo-shi&units=metric&appid=ed3613141a9cfecc4d23ace1b572a821')
 response_owm3 = requests.get(SAPPORO_WEATHER_URL)
 
 # Open Weather Mapから取得したデータを格納
