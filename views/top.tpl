@@ -41,7 +41,6 @@
     <div class="siimple-h2">気象台</div>
 
     <p class="siimple-p">ただいまの南さいたまの気温は<b>{{row2[1]}}℃</b>、湿度は<b>{{row2[2]}}％</b>くらいです。</p>
-    <p class="siimple-p">{{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}}</p>    
 
     <p class="siimple-p"><a href="/stat" class="siimple-link">統計情報</a></p>
     <p class="siimple-p"><a href="/graph2" class="siimple-link">グラフ</a></p>
@@ -72,6 +71,10 @@
 
     <p class="siimple-p"><span class="siimple-tag siimple-tag--navy">SQL文</span></p>
     <pre class="siimple-pre">SELECT TOP 100 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC;</pre>
+
+    <p class="siimple-p">Debug {{row2[0]}} {{row2[1]}} {{row2[2]}} {{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}} {{row2[8]}} {{row2[9]}}</p>    
+
+    <p class="siimple-p">http://openweathermap.org/img/w/{{row2[8]}}.png</p>
 
   </div>
 </body>
