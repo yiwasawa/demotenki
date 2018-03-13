@@ -74,9 +74,5 @@
 
     <p class="siimple-p">Debug {{row2[0]}} {{row2[1]}} {{row2[2]}} {{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}} {{row2[8]}} {{row2[9]}}</p>    
 
-    % tenki = row2[8]
-    % tenki = tenki[1:4]
-    <p class="siimple-p"><img src="http://openweathermap.org/img/w/{{tenki}}.png"></p>
-
   </div>
 </body>
