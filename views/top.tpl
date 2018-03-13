@@ -76,7 +76,7 @@
 
     % tenki = row2[8]
     % tenki = tenki[1:4]
-    <p class="siimple-p">http://openweathermap.org/img/w/{{tenki}}.png</p>
+    <p class="siimple-p"><img src="http://openweathermap.org/img/w/{{tenki}}.png"></p>
 
   </div>
 </body>
