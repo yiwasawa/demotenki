@@ -31,7 +31,7 @@
 % cnxn3 = pyodbc.connect(DB_CONNECT_02)
 % cursor3 = cnxn3.cursor()
 % sql3 = "SELECT TOP 10 CONVERT(VARCHAR, NICHIJI, 111) AS DATE, MAX(TEMP1) AS MAX FROM TenkiDemo GROUP BY CONVERT(VARCHAR, NICHIJI, 111) ORDER BY MAX DESC;"
-% cursor3.execute(sql2)
+% cursor3.execute(sql3)
 
 <head>
   <title>気象台 > 統計情報</title>
