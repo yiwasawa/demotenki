@@ -72,9 +72,7 @@
     <p class="siimple-p"><span class="siimple-tag siimple-tag--navy">SQL文</span></p>
     <pre class="siimple-pre">SELECT TOP 100 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC;</pre>
 
-    <p class="siimple-p">Debug {{row2[0]}} {{row2[1]}} {{row2[2]}} {{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}} {{row2[8]}} {{row2[9]}}</p>    
-
-    <p class="siimple-p">Test</p>    
+    <p class="siimple-p">Debug {{row2[0]}} {{row2[1]}} {{row2[2]}} {{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}} {{row2[8]}} {{row2[9]}}</p>       
 
   </div>
 </body>
