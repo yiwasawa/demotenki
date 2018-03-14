@@ -28,6 +28,11 @@
 % sql2 = "SELECT CONVERT(VARCHAR(7), NICHIJI, 111) AS DATE, MAX(TEMP1) AS MAX , MIN(TEMP1) AS MIN FROM TenkiDemo GROUP BY CONVERT(VARCHAR(7), NICHIJI, 111) ORDER BY DATE DESC;"
 % cursor2.execute(sql2)
 
+% cnxn3 = pyodbc.connect(DB_CONNECT_02)
+% cursor3 = cnxn3.cursor()
+% sql3 = "SELECT TOP 10 CONVERT(VARCHAR, NICHIJI, 111) AS DATE, MAX(TEMP1) AS MAX FROM TenkiDemo GROUP BY CONVERT(VARCHAR, NICHIJI, 111) ORDER BY MAX DESC;"
+% cursor3.execute(sql2)
+
 <head>
   <title>気象台 > 統計情報</title>
 </head>
@@ -90,6 +95,25 @@
     <p class="siimple-p"><span class="siimple-tag siimple-tag--navy">SQL文</span></p>
 
     <pre class="siimple-pre">SELECT CONVERT(VARCHAR(7), NICHIJI, 111) AS DATE, MAX(TEMP1) AS MAX , MIN(TEMP1) AS MIN FROM TenkiDemo GROUP BY CONVERT(VARCHAR(7), NICHIJI, 111) ORDER BY DATE DESC;</pre>
+
+
+    <div class="siimple-table">
+      <div class="siimple-table-header">
+        <div class="siimple-table-row">
+          <div class="siimple-table-cell">年月日</div>
+          <div class="siimple-table-cell">最高気温</div>
+        </div>
+      </div>
+      <div class="siimple-table-body">
+        % for row in cursor3.fetchall():
+        <div class="siimple-table-row">
+          <div class="siimple-table-cell">{{row[0]}}</div>
+          <div class="siimple-table-cell">{{row[1]}}</div>
+        </div>
+        %end
+      </div>
+    </div>
+
 
   </div>
 
