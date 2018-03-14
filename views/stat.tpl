@@ -97,24 +97,6 @@
     <pre class="siimple-pre">SELECT CONVERT(VARCHAR(7), NICHIJI, 111) AS DATE, MAX(TEMP1) AS MAX , MIN(TEMP1) AS MIN FROM TenkiDemo GROUP BY CONVERT(VARCHAR(7), NICHIJI, 111) ORDER BY DATE DESC;</pre>
 
 
-    <div class="siimple-table">
-      <div class="siimple-table-header">
-        <div class="siimple-table-row">
-          <div class="siimple-table-cell">年月日</div>
-          <div class="siimple-table-cell">最高気温</div>
-        </div>
-      </div>
-      <div class="siimple-table-body">
-        % for row in cursor3.fetchall():
-        <div class="siimple-table-row">
-          <div class="siimple-table-cell">{{row[0]}}</div>
-          <div class="siimple-table-cell">{{row[1]}}</div>
-        </div>
-        %end
-      </div>
-    </div>
-
-
   </div>
 
 </body>
