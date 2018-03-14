@@ -6,6 +6,7 @@ import datetime
 import pyodbc
 from password.password import *
 
+# Netatmoの認証情報
 authorization = lnetatmo.ClientAuth(
     clientId = NETA_ID,
     clientSecret = NETA_PW,
@@ -14,21 +15,24 @@ authorization = lnetatmo.ClientAuth(
     scope = ""
     )
 
+# Netatmoからのデータ取得
 devList = lnetatmo.WeatherStationData(authorization)
-
 outdoors_temp = devList.lastData()['Outdoor']['Temperature']
 outdoors_humi = devList.lastData()['Outdoor']['Humidity']
 
-# print (time.time())
-# print (time.time() * 1000)
-
-
 #HANAのタイムスタンプへの変換
-posttime = time.time() * 1000
+posttime = time.time()
+print(posttime)
+posttime = posttime * 1000
+print(posttime)
 posttime = posttime + 32400000
+print(posttime)
 posttime = str(posttime)
+print(posttime)
 posttime = posttime[0:13]
+print(posttime)
 posttime = '/Date(' + posttime + ")/"
+print(posttime)
 
 #MSSQLのタイムスタンプへの変換
 posttime_mssql = datetime.datetime.now()
@@ -43,41 +47,11 @@ print(posttime_mssql)
 outdoors_temp = str(outdoors_temp)
 outdoors_humi = str(outdoors_humi)
 
-# print(outdoors_temp)
-# print(outdoors_humi)
-# print(posttime)
-
-head = {
-        'Authorization':HDB_AUTH,
-        'Content-Type':'application/json; charset=utf-8'
-    }
-
-obj = {
-        'TIMESTAMP' : posttime,
-        'TEMP' : outdoors_temp,
-        'HUMI' : outdoors_humi
-    }
-
-json_data = json.dumps(obj).encode('utf-8')
-
-print(json_data)
-
-# HANAへのデータ追加（廃止）
-# r = requests.post(
-#     XSODATA_URL,
-#     headers=head,
-#     data=json_data)
-# print(r)
-# print(r.text)
-
 # Open Weather Mapからのデータ取得
-
 # 東京
 response_owm1 = requests.get(TOKYO_WEATHER_URL)
-
 # 埼玉
 response_owm2 = requests.get(SAITAMA_WEATHER_URL)
-
 # 札幌
 response_owm3 = requests.get(SAPPORO_WEATHER_URL)
 
@@ -114,7 +88,7 @@ sql = "INSERT INTO dbo.Tenki (TIMESTAMP, TEMP, HUMI) VALUES ('" + posttime_mssql
 cursor.execute(sql)
 cnxn.commit()
 
-# MKI Azure DBへのINSERT
+# Azure DBへのINSERT
 cnxn = pyodbc.connect(DB_CONNECT_02)
 cursor = cnxn.cursor()
 sql = "INSERT INTO dbo.TenkiDemo (NICHIJI, TEMP1, HUMI1, TEMP2, HUMI2, TEMP3, HUMI3, TENKI2, TENKI3) VALUES ('" + posttime_mssql + "','" + outdoors_temp + "','" + outdoors_humi + "','" + tokyo_temp + "','" + tokyo_humi + "','" + sapporo_temp + "','" + sapporo_humi + "','" + tokyo_tenki + "','" + sapporo_tenki + "')"
