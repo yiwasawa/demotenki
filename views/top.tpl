@@ -48,7 +48,7 @@
 
     <div class="siimple-h3">最新100件</div>
 
-    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">川口市</span></p>
+    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">南さいたま</span></p>
 
     <div class="siimple-table">
       <div class="siimple-table-header">
