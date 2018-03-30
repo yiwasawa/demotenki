@@ -53,7 +53,7 @@ def data2():
     # SQLを発行してデータを取得
     cnxn3 = pyodbc.connect(DB_CONNECT_02)
     cursor3 = cnxn3.cursor()
-    sql3 = "SELECT * from dbo.TenkiDemo WHERE NICHIJI > '2018-01-24 12:00:00' ORDER BY NICHIJI DESC"
+    sql3 = "SELECT * from dbo.TenkiDemo WHERE NICHIJI > '2018-03-01 12:00:00' ORDER BY NICHIJI DESC"
     cursor3.execute(sql3)
 
     # 取得したデータを出力データとして整形
@@ -71,8 +71,10 @@ def tokyodata():
     # SQLを発行してデータを取得
     cnxn3 = pyodbc.connect(DB_CONNECT_02)
     cursor3 = cnxn3.cursor()
-    sql3 = "SELECT * from dbo.TenkiDemo WHERE NICHIJI > '2018-01-24 12:00:00' ORDER BY NICHIJI DESC"
+    sql3 = "SELECT * from dbo.TenkiDemo WHERE NICHIJI > '2018-03-01 12:00:00' ORDER BY NICHIJI DESC"
+
     cursor3.execute(sql3)
+
 
     # 取得したデータを出力データとして整形
     for row in cursor3.fetchall():
@@ -89,8 +91,9 @@ def saitamadata():
     # SQLを発行してデータを取得
     cnxn3 = pyodbc.connect(DB_CONNECT_02)
     cursor3 = cnxn3.cursor()
-    sql3 = "SELECT * from dbo.TenkiDemo WHERE NICHIJI > '2018-01-24 12:00:00' ORDER BY NICHIJI DESC"
+    sql3 = "SELECT * from dbo.TenkiDemo WHERE NICHIJI > '2018-03-01 12:00:00' ORDER BY NICHIJI DESC"
     cursor3.execute(sql3)
+
 
     # 取得したデータを出力データとして整形
     for row in cursor3.fetchall():
