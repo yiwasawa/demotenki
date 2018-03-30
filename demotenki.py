@@ -82,7 +82,7 @@ sapporo_humi = json.dumps(data_owm3["main"]["humidity"])
 sapporo_tenki = json.dumps(data_owm3["weather"][0]["icon"])
 
 # 個人 Azure DBへのINSERT
-cnxn = pyodbc.connect(DB_CONNECT_01)
+cnxn = pyodbc.connect(DB_CONNECT_02)
 cursor = cnxn.cursor()
 sql = "INSERT INTO dbo.Tenki (TIMESTAMP, TEMP, HUMI) VALUES ('" + posttime_mssql + "','" + outdoors_temp + "','" + outdoors_humi + "')"
 cursor.execute(sql)

@@ -33,7 +33,7 @@ def data():
     data = ''
 
     # SQLを発行してデータを取得
-    cnxn2 = pyodbc.connect(DB_CONNECT_01)
+    cnxn2 = pyodbc.connect(DB_CONNECT_02)
     cursor2 = cnxn2.cursor()
     sql2 = "SELECT * from dbo.Tenki ORDER BY TIMESTAMP"
     cursor2.execute(sql2)
