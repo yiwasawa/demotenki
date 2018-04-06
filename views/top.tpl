@@ -76,7 +76,22 @@
     
     % tenki = row2[8]
     % tenki = tenki[1:3]
+
+    % tenkilist = {
+    % "01": "晴れ",
+    % "02": "晴れ",
+    % "03": "くもり",
+    % "04": "くもり",
+    % "09": "雨",
+    % "10": "雨",
+    % "13": "雪",
+    % "50": "もや"
+    % }
+
+    % tenkitext = tenkilist.get(tenki,"不明")
+
     <p class="siimple-p">{{tenki}}</p>
+    <p class="siimple-p">{{tenkitext}}</p>
 
   </div>
 </body>
