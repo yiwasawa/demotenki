@@ -89,13 +89,13 @@
     % }
 
     % tenkiicon = {
-    % "01": "mark_tenki_hare.png",
-    % "02": "mark_tenki_hare.png",
-    % "03": "mark_tenki_kumori.png",
-    % "04": "mark_tenki_kumori.png",
-    % "09": "mark_tenki_umbrella.png",
-    % "10": "mark_tenki_umbrella.png",
-    % "13": "tenki_snow.png",
+    % "01": "icons8-sun-50.png",
+    % "02": "icons8-partly-cloudy-day-50.png",
+    % "03": "icons8-clouds-50.png",
+    % "04": "icons8-clouds-50.png",
+    % "09": "icons8-rain-50.png",
+    % "10": "icons8-rain-50.png",
+    % "13": "icons8-snow-50.png",
     % "50": "mark_tenki_kumori.png"
     % }
 
