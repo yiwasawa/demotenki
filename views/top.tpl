@@ -106,7 +106,7 @@
     % tenkiimg = tenkiicon.get(tenki,"mark_tenki_kumori.png")
     <p class="siimple-p">{{tenki}}</p>
     <p class="siimple-p">{{tenkitext}}</p>
-    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}></p>
+    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p>
 
   </div>
 </body>
