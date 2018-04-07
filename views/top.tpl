@@ -88,10 +88,25 @@
     % "50": "もや"
     % }
 
-    % tenkitext = tenkilist.get(tenki,"不明")
+    % tenkiicon = {
+    % "01": "mark_tenki_hare.png",
+    % "02": "mark_tenki_hare.png",
+    % "03": "mark_tenki_kumori.png",
+    % "04": "mark_tenki_kumori.png",
+    % "09": "mark_tenki_umbrella.png",
+    % "10": "mark_tenki_umbrella.png",
+    % "13": "tenki_snow.png",
+    % "50": "mark_tenki_kumori.png"
+    % }
 
+
+
+
+    % tenkitext = tenkilist.get(tenki,"不明")
+    % tenkiimg = tenkiicon.get(tenki,"mark_tenki_kumori.png")
     <p class="siimple-p">{{tenki}}</p>
     <p class="siimple-p">{{tenkitext}}</p>
+    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}></p>
 
   </div>
 </body>
