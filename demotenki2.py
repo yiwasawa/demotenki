@@ -28,6 +28,10 @@ def stat():
 def mobile():
     return template('mobile')
 
+@route('/file/<filename:path>')
+def static(filename):
+    return static_file(filename, root="/home/ec2-user/demotenki/static")
+
 @get('/data')
 def data():
     data = ''
