@@ -30,6 +30,34 @@
 % cursor2.execute(sql2)
 % row2 = cursor2.fetchone()
 
+% tenki = row2[8]
+% tenki = tenki[1:3]
+
+% tenkilist = {
+% "01": "晴れ",
+% "02": "晴れ",
+% "03": "くもり",
+% "04": "くもり",
+% "09": "雨",
+% "10": "雨",
+% "13": "雪",
+% "50": "もや"
+% }
+
+% tenkiicon = {
+% "01": "icons8-sun-50.png",
+% "02": "icons8-partly-cloudy-day-50.png",
+% "03": "icons8-clouds-50.png",
+% "04": "icons8-clouds-50.png",
+% "09": "icons8-rain-50.png",
+% "10": "icons8-rain-50.png",
+% "13": "icons8-snow-50.png",
+% "50": "mark_tenki_kumori.png"
+% }
+
+% tenkitext = tenkilist.get(tenki,"不明")
+% tenkiimg = tenkiicon.get(tenki,"icons8-barometer-50.png")
+
 <head>
   <title>気象台</title>
 </head>
@@ -41,6 +69,8 @@
     <div class="siimple-h2">気象台</div>
 
     <p class="siimple-p">ただいまの南さいたまの気温は<b>{{row2[1]}}℃</b>、湿度は<b>{{row2[2]}}％</b>くらいです。</p>
+
+    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p>
 
     <p class="siimple-p"><a href="/stat" class="siimple-link">統計情報</a></p>
     <p class="siimple-p"><a href="/graph2" class="siimple-link">グラフ</a></p>
@@ -74,39 +104,8 @@
 
     <p class="siimple-p">Debug {{row2[0]}} {{row2[1]}} {{row2[2]}} {{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}} {{row2[8]}} {{row2[9]}}</p>       
     
-    % tenki = row2[8]
-    % tenki = tenki[1:3]
-
-    % tenkilist = {
-    % "01": "晴れ",
-    % "02": "晴れ",
-    % "03": "くもり",
-    % "04": "くもり",
-    % "09": "雨",
-    % "10": "雨",
-    % "13": "雪",
-    % "50": "もや"
-    % }
-
-    % tenkiicon = {
-    % "01": "icons8-sun-50.png",
-    % "02": "icons8-partly-cloudy-day-50.png",
-    % "03": "icons8-clouds-50.png",
-    % "04": "icons8-clouds-50.png",
-    % "09": "icons8-rain-50.png",
-    % "10": "icons8-rain-50.png",
-    % "13": "icons8-snow-50.png",
-    % "50": "mark_tenki_kumori.png"
-    % }
 
 
-
-
-    % tenkitext = tenkilist.get(tenki,"不明")
-    % tenkiimg = tenkiicon.get(tenki,"mark_tenki_kumori.png")
-    <p class="siimple-p">{{tenki}}</p>
-    <p class="siimple-p">{{tenkitext}}</p>
-    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p>
 
   </div>
 </body>
