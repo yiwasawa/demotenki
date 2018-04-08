@@ -23,15 +23,15 @@ def graph2():
 def stat():
     return template('stat')
 
-# モバイル
-@route('/mobile')
-def mobile():
-    return template('mobile')
-
 # 予報
 @route('/forecast')
 def forecast():
     return template('forecast')
+
+# モバイル
+@route('/mobile')
+def mobile():
+    return template('mobile')
 
 # static
 @route('/file/<filename:path>')
