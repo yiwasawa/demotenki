@@ -90,7 +90,7 @@
         <div class="siimple-table-row">
           <div class="siimple-table-cell">{{row[3]}}</div>
           <div class="siimple-table-cell">{{row[4]}}</div>
-          % row[6] = int(row[6]) * 100
+          % row[6] = float(row[6]) * 100
           <div class="siimple-table-cell">{{row[6]}} %</div>
           <div class="siimple-table-cell">{{row[7]}} ℃</div>
           <div class="siimple-table-cell">{{row[10]}} m/s</div>
