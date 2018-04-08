@@ -45,11 +45,11 @@
 % }
 
 % tenkiicon = {
-% "01": "icons8-sun-50.png",
-% "02": "icons8-partly-cloudy-day-50.png",
-% "03": "icons8-clouds-50.png",
-% "04": "icons8-clouds-50.png",
-% "09": "icons8-rain-50.png",
+% "clear-day": "icons8-sun-50.png",
+% "clear-night": "icons8-moon-and-stars-50.png",
+% "partly-cloudy-day": "icons8-partly-cloudy-day-50.png",
+% "partly-cloudy-night": "icons8-night-50.png",
+% "wind": "icons8-windy-weather-50.png",
 % "10": "icons8-rain-50.png",
 % "13": "icons8-snow-50.png",
 % "50": "mark_tenki_kumori.png"
@@ -89,7 +89,8 @@
         % for row in cursor.fetchall():
         <div class="siimple-table-row">
           <div class="siimple-table-cell">{{row[3]}}</div>
-          <div class="siimple-table-cell">{{row[4]}}</div>
+          % tenkiimg = tenkiicon.get(row[4],"icons8-barometer-50.png")
+          <div class="siimple-table-cell"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></div>
           % row[6] = float(row[6]) * 100
           <div class="siimple-table-cell">{{row[6]}} %</div>
           <div class="siimple-table-cell">{{row[7]}} ℃</div>

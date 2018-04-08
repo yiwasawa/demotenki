@@ -72,9 +72,9 @@
 
     <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p>
 
+    <p class="siimple-p"><a href="/stat" class="siimple-link">48時間予報（β版）</a></p>
     <p class="siimple-p"><a href="/stat" class="siimple-link">統計情報</a></p>
     <p class="siimple-p"><a href="/graph2" class="siimple-link">グラフ</a></p>
-    <p class="siimple-p"><a href="/graph" class="siimple-link">旧グラフ</a></p>
 
     <div class="siimple-h3">最新100件</div>
 
