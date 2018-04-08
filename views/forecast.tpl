@@ -78,33 +78,32 @@
 
     <div class="siimple-h3">最新100件</div>
 
-    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">南さいたま</span></p>
+    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">東京（愛宕）</span></p>
 
     <div class="siimple-table">
       <div class="siimple-table-header">
         <div class="siimple-table-row">
           <div class="siimple-table-cell">日時</div>
-          <div class="siimple-table-cell">温度</div>
+          <div class="siimple-table-cell">天気</div>
+          <div class="siimple-table-cell">湿度</div>
+          <div class="siimple-table-cell">湿度</div>
+          <div class="siimple-table-cell">湿度</div>
           <div class="siimple-table-cell">湿度</div>
         </div>
       </div>
       <div class="siimple-table-body">
         % for row in cursor.fetchall():
         <div class="siimple-table-row">
-          <div class="siimple-table-cell">{{row[0]}}</div>
-          <div class="siimple-table-cell">{{row[1]}}</div>
-          <div class="siimple-table-cell">{{row[2]}}</div>
+          <div class="siimple-table-cell">{{row[3]}}</div>
+          <div class="siimple-table-cell">{{row[4]}}</div>
+          <div class="siimple-table-cell">{{row[6]}}</div>
+          <div class="siimple-table-cell">{{row[7]}}</div>
+          <div class="siimple-table-cell">{{row[10]}}</div>
+          <div class="siimple-table-cell">{{row[14]}}</div>
         </div>
         %end
       </div>
     </div>
-
-    <p class="siimple-p"><span class="siimple-tag siimple-tag--navy">SQL文</span></p>
-    <pre class="siimple-pre">SELECT TOP 100 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC;</pre>
-
-    <p class="siimple-p">Debug {{row2[0]}} {{row2[1]}} {{row2[2]}} {{row2[3]}} {{row2[4]}} {{row2[5]}} {{row2[6]}} {{row2[7]}} {{row2[8]}} {{row2[9]}}</p>       
-    
-
 
 
   </div>
