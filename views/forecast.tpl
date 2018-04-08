@@ -45,11 +45,11 @@
 % }
 
 % tenkiicon = {
-% "clear-day": "icons8-sun-50.png",
-% "clear-night": "icons8-moon-and-stars-50.png",
-% "partly-cloudy-day": "icons8-partly-cloudy-day-50.png",
-% "partly-cloudy-night": "icons8-night-50.png",
-% "wind": "icons8-windy-weather-50.png",
+% "clear-day": "icons8-sun-24.png",
+% "clear-night": "icons8-moon-and-stars-24.png",
+% "partly-cloudy-day": "icons8-partly-cloudy-day-24",
+% "partly-cloudy-night": "icons8-night-24",
+% "wind": "icons8-windsock-24.png",
 % "10": "icons8-rain-50.png",
 % "13": "icons8-snow-50.png",
 % "50": "mark_tenki_kumori.png"
