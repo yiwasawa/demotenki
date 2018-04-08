@@ -68,15 +68,9 @@
 
     <div class="siimple-h2">気象台</div>
 
-    <p class="siimple-p">ただいまの南さいたまの気温は<b>{{row2[1]}}℃</b>、湿度は<b>{{row2[2]}}％</b>くらいです。</p>
+    <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p>
-
-    <p class="siimple-p"><a href="/stat" class="siimple-link">統計情報</a></p>
-    <p class="siimple-p"><a href="/graph2" class="siimple-link">グラフ</a></p>
-    <p class="siimple-p"><a href="/graph" class="siimple-link">旧グラフ</a></p>
-
-    <div class="siimple-h3">最新100件</div>
+    <div class="siimple-h3">48時間予報</div>
 
     <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">東京（愛宕）</span></p>
 
@@ -85,10 +79,10 @@
         <div class="siimple-table-row">
           <div class="siimple-table-cell">日時</div>
           <div class="siimple-table-cell">天気</div>
-          <div class="siimple-table-cell">湿度</div>
-          <div class="siimple-table-cell">湿度</div>
-          <div class="siimple-table-cell">湿度</div>
-          <div class="siimple-table-cell">湿度</div>
+          <div class="siimple-table-cell">降水確率</div>
+          <div class="siimple-table-cell">温度</div>
+          <div class="siimple-table-cell">風速</div>
+          <div class="siimple-table-cell">UV(0-10)</div>
         </div>
       </div>
       <div class="siimple-table-body">
@@ -96,9 +90,9 @@
         <div class="siimple-table-row">
           <div class="siimple-table-cell">{{row[3]}}</div>
           <div class="siimple-table-cell">{{row[4]}}</div>
-          <div class="siimple-table-cell">{{row[6]}}</div>
-          <div class="siimple-table-cell">{{row[7]}}</div>
-          <div class="siimple-table-cell">{{row[10]}}</div>
+          <div class="siimple-table-cell">{{row[6] * 100}} %</div>
+          <div class="siimple-table-cell">{{row[7]}} ℃</div>
+          <div class="siimple-table-cell">{{row[10]}} m/s</div>
           <div class="siimple-table-cell">{{row[14]}}</div>
         </div>
         %end
