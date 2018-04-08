@@ -33,6 +33,7 @@ for i in range(49):
 
     i_time = int(json.dumps(data_ds1["hourly"]["data"][i]["time"]))
     i_time = datetime.datetime.fromtimestamp(i_time)
+    i_time = i_time + datetime.timedelta(hours=9)
     i_time = str(i_time)
 
     i_icon = json.dumps(data_ds1["hourly"]["data"][i]["icon"])
