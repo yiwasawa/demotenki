@@ -28,6 +28,12 @@ def stat():
 def mobile():
     return template('mobile')
 
+# 予報
+@route('/forecast')
+def forecast():
+    return template('forecast')
+
+# static
 @route('/file/<filename:path>')
 def static(filename):
     return static_file(filename, root="/home/ec2-user/demotenki/static")
