@@ -52,7 +52,7 @@
 % "09": "icons8-rain-50.png",
 % "10": "icons8-rain-50.png",
 % "13": "icons8-snow-50.png",
-% "50": "mark_tenki_kumori.png"
+% "50": "icons8-clouds-50.png"
 % }
 
 % tenkitext = tenkilist.get(tenki,"不明")
