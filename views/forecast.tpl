@@ -51,7 +51,7 @@
 % "partly-cloudy-night": "icons8-night-24.png",
 % "wind": "icons8-windsock-24.png",
 % "cloudy": "icons8-cloudy-24.png",
-% "13": "icons8-snow-50.png",
+% "rain": "icons8-rainy-weather-24.png",
 % "50": "mark_tenki_kumori.png"
 % }
 
