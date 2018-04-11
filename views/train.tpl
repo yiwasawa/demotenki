@@ -18,7 +18,7 @@
 % import pyodbc
 % cnxn = pyodbc.connect(DB_CONNECT_02)
 % cursor = cnxn.cursor()
-% sql = "SELECT TOP 5 TIME_FROM, TIME_TO, DESTINATION, NOTE FROM TrainTime WHERE TIME_FROM > '21:00';"
+% sql = "SELECT TOP 5 TIME_FROM, TIME_TO, DESTINATION, NOTE FROM TrainTime"
 % cursor.execute(sql)
 
 % cnxn2 = pyodbc.connect(DB_CONNECT_02)
@@ -66,6 +66,9 @@
     <div class="siimple-h2">通勤時刻表</div>
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
+
+    % nowtime = datetime.now().strftime("%H:%M")
+    <div class="siimple-h3">{{nowtime}}</div>
 
     <div class="siimple-h3">新橋⇒赤羽</div>
 
