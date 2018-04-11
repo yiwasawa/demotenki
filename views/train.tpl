@@ -15,6 +15,8 @@
 % sys.path.append('..')
 % from password.password import *
 
+% import datetime
+
 % import pyodbc
 % cnxn = pyodbc.connect(DB_CONNECT_02)
 % cursor = cnxn.cursor()
