@@ -28,6 +28,11 @@ def stat():
 def forecast():
     return template('forecast')
 
+# 電車
+@route('/train')
+def forecast():
+    return template('train')
+
 # モバイル
 @route('/mobile')
 def mobile():
