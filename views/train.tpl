@@ -86,8 +86,9 @@
       <div class="siimple-table-body">
         % for row in cursor.fetchall():
         <div class="siimple-table-row">
-          % row[0] = row[0][0:4]
+          % row[0] = row[0][0:5]
           <div class="siimple-table-cell">{{row[0]}}</div>
+          % row[1] = row[1][0:5]
           <div class="siimple-table-cell">{{row[1]}}</div>
           <div class="siimple-table-cell">{{row[2]}}</div>
           <div class="siimple-table-cell">{{row[3]}}</div>
