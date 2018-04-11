@@ -8,10 +8,7 @@
   {
     margin: 40px;
   }
-  .stattable
-  {
-    max-width: 400px;
-  }
+
 </style>
 
 % import sys
