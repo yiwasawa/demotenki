@@ -25,7 +25,7 @@
 % import pyodbc
 % cnxn = pyodbc.connect(DB_CONNECT_02)
 % cursor = cnxn.cursor()
-% sql = "SELECT TOP 5 TIME_FROM, TIME_TO, DESTINATION, NOTE FROM TrainTime WHERE TIME_FROM > " + nowtime
+% sql = "SELECT TOP 5 TIME_FROM, TIME_TO, DESTINATION, NOTE FROM TrainTime WHERE TIME_FROM > '" + nowtime + "'"
 % cursor.execute(sql)
 
 % cnxn2 = pyodbc.connect(DB_CONNECT_02)
