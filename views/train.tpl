@@ -17,10 +17,15 @@
 
 % import datetime
 
+% nowtime = datetime.datetime.now()
+% nowtime = nowtime + datetime.timedelta(hours=9)
+% nowtime = nowtime.strftime("%H:%M")
+
+
 % import pyodbc
 % cnxn = pyodbc.connect(DB_CONNECT_02)
 % cursor = cnxn.cursor()
-% sql = "SELECT TOP 5 TIME_FROM, TIME_TO, DESTINATION, NOTE FROM TrainTime"
+% sql = "SELECT TOP 5 TIME_FROM, TIME_TO, DESTINATION, NOTE FROM TrainTime WHERE TIME_FROM > " + nowtime
 % cursor.execute(sql)
 
 % cnxn2 = pyodbc.connect(DB_CONNECT_02)
@@ -57,6 +62,8 @@
 % tenkitext = tenkilist.get(tenki,"不明")
 % tenkiimg = tenkiicon.get(tenki,"icons8-barometer-50.png")
 
+
+
 <head>
   <title>気象台</title>
 </head>
@@ -69,9 +76,7 @@
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-    % nowtime = datetime.datetime.now()
-    % nowtime = nowtime + datetime.timedelta(hours=9)
-    % nowtime = nowtime.strftime("%H:%M")
+
     
     <div class="siimple-h3">{{nowtime}}</div>
 
