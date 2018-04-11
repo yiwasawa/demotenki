@@ -2,14 +2,14 @@
 <!-- <link rel="stylesheet" href="../dist/siimple.css"> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.css">
 
-<!-- Test styles -->
+<!-- styles -->
 <style>
-  body
-  {
-    margin: 40px;
-  }
-
+    body {
+        margin: 0px;
+    }
 </style>
+
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
 
 % import sys
 % sys.path.append('..')
