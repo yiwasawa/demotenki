@@ -69,7 +69,10 @@
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-    % nowtime = datetime.datetime.now().strftime("%H:%M")
+    % nowtime = datetime.datetime.now()
+    % nowtime = nowtime + datetime.timedelta(hours=9)
+    % nowtime = nowtime.strftime("%H:%M")
+    
     <div class="siimple-h3">{{nowtime}}</div>
 
     <div class="siimple-h3">新橋⇒赤羽</div>
