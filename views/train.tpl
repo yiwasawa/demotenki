@@ -66,13 +66,11 @@
 
   <div class="siimple-content--small">
 
-    <div class="siimple-h2">気象台</div>
+    <div class="siimple-h2">通勤時刻表</div>
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-    <div class="siimple-h3">48時間予報（ベータ版）</div>
-
-    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">東京（愛宕）</span></p>
+    <div class="siimple-h3">新橋⇒赤羽</div>
 
     <div class="siimple-table">
       <div class="siimple-table-header">
