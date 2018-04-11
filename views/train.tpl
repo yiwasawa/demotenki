@@ -48,6 +48,8 @@
 
     <div class="siimple-h3">{{nowtime}}時点</div>
 
+    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">赤羽⇒新橋/新橋⇒赤羽</span></p>
+
     <div class="siimple-table">
       <div class="siimple-table-header">
         <div class="siimple-table-row">

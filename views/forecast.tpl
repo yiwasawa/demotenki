@@ -72,7 +72,7 @@
 
     <div class="siimple-h3">48時間予報（ベータ版）</div>
 
-    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">東京（愛宕）</span></p>
+    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">東京</span></p>
 
     <div class="siimple-table">
       <div class="siimple-table-header">
