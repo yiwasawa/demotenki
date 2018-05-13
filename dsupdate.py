@@ -52,8 +52,8 @@ for i in range(49):
     i_windSpeed = json.dumps(data_ds1["hourly"]["data"][i]["windSpeed"])
     i_windGust = "0"
     i_windBearing = json.dumps(data_ds1["hourly"]["data"][i]["windBearing"])
-    i_cloudCover = json.dumps(data_ds1["hourly"]["data"][i]["cloudCover"])
-    i_uvIndex = json.dumps(data_ds1["hourly"]["data"][i]["uvIndex"])
+    i_cloudCover = "0"
+    i_uvIndex = "0"
 
     # Azure DBへのINSERT
     cnxn = pyodbc.connect(DB_CONNECT_02)
@@ -85,8 +85,8 @@ for i in range(49):
     i_windSpeed = json.dumps(data_ds2["hourly"]["data"][i]["windSpeed"])
     i_windGust = "0"
     i_windBearing = json.dumps(data_ds2["hourly"]["data"][i]["windBearing"])
-    i_cloudCover = json.dumps(data_ds2["hourly"]["data"][i]["cloudCover"])
-    i_uvIndex = json.dumps(data_ds2["hourly"]["data"][i]["uvIndex"])
+    i_cloudCover = "0"
+    i_uvIndex = "0"
 
     # Azure DBへのINSERT
     cnxn = pyodbc.connect(DB_CONNECT_02)
@@ -118,8 +118,8 @@ for i in range(49):
     i_windSpeed = json.dumps(data_ds3["hourly"]["data"][i]["windSpeed"])
     i_windGust = "0"
     i_windBearing = json.dumps(data_ds3["hourly"]["data"][i]["windBearing"])
-    i_cloudCover = json.dumps(data_ds3["hourly"]["data"][i]["cloudCover"])
-    i_uvIndex = json.dumps(data_ds3["hourly"]["data"][i]["uvIndex"])
+    i_cloudCover = "0"
+    i_uvIndex = "0"
 
     # Azure DBへのINSERT
     cnxn = pyodbc.connect(DB_CONNECT_02)
@@ -151,8 +151,8 @@ for i in range(49):
     i_windSpeed = json.dumps(data_ds4["hourly"]["data"][i]["windSpeed"])
     i_windGust = "0"
     i_windBearing = json.dumps(data_ds4["hourly"]["data"][i]["windBearing"])
-    i_cloudCover = json.dumps(data_ds4["hourly"]["data"][i]["cloudCover"])
-    i_uvIndex = json.dumps(data_ds4["hourly"]["data"][i]["uvIndex"])
+    i_cloudCover = "0"
+    i_uvIndex = "0"
 
     # Azure DBへのINSERT
     cnxn = pyodbc.connect(DB_CONNECT_02)
