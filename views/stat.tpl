@@ -3,15 +3,12 @@
 
 <!-- styles -->
 <style>
-  body
-  {
-    margin: 40px;
-  }
-  .stattable
-  {
-    max-width: 400px;
-  }
+    body {
+        margin: 0px;
+    }
 </style>
+
+<meta content="width=device-width,initial-scale=1.0" name="viewport">
 
 % import sys
 % sys.path.append('..')
