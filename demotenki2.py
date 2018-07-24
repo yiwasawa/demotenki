@@ -38,6 +38,11 @@ def forecast():
 def mobile():
     return template('mobile')
 
+# RSS
+@route('/rss2')
+def rss2():
+    return template('rss2')
+
 # static
 @route('/file/<filename:path>')
 def static(filename):
