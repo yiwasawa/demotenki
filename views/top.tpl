@@ -70,7 +70,7 @@
 
     <p class="siimple-p">ただいまの南さいたまの気温は<b>{{row2[1]}}℃</b>、湿度は<b>{{row2[2]}}％</b>くらいです。</p>
 
-    <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p>
+    <!-- <p class="siimple-p"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></p> -->
 
     <p class="siimple-p"><a href="/forecast" class="siimple-link">48時間予報（ベータ版）</a></p>
     <p class="siimple-p"><a href="/stat" class="siimple-link">統計情報</a></p>
