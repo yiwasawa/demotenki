@@ -15,7 +15,7 @@ except (BotoCoreError, ClientError) as error:
     sys.exit(-1)
 if "AudioStream" in response:
     with closing(response["AudioStream"]) as stream:
-        output = "speech.mp3"
+        output = "/var/www/html/speech2.mp3"
         try:
             with open(output, "wb") as file:
                 file.write(stream.read())
