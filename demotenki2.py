@@ -140,7 +140,7 @@ def demopolly():
     cursor4.execute(sql4)
     row4 = cursor4.fetchone()
     
-    speech = "ただいまの南さいたまの気温は" + row4[1] + "℃、湿度は" + row4[2] + "％くらいです。"
+    speech = "ただいまの南さいたまの気温は" + str(row4[1]) + "℃、湿度は" + str(row4[2]) + "％くらいです。"
 
     session = Session(region_name="ap-northeast-1")
     polly = session.client("polly")
