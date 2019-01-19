@@ -164,7 +164,10 @@ def demopolly():
         print("Could not stream audio")
         sys.exit(-1)
 
-
+# Polly
+@route('/polly')
+def polly():
+    return template('polly')
 
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
