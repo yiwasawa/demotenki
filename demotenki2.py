@@ -130,44 +130,10 @@ def saitamadata():
     # データ返却
     return '[{}]'.format(saitamadata)
 
-@get('/demopolly')
-def demopolly():
-    demopolly = ''
-
-    cnxn4 = pyodbc.connect(DB_CONNECT_02)
-    cursor4 = cnxn4.cursor()
-    sql4 = "SELECT TOP 1 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC"
-    cursor4.execute(sql4)
-    row4 = cursor4.fetchone()
-    
-    speech = "ただいまの南さいたまの気温は" + str(row4[1]) + "℃、湿度は" + str(row4[2]) + "％くらいです。"
-
-    session = Session(region_name="ap-northeast-1")
-    polly = session.client("polly")
-
-    try:
-        response = polly.synthesize_speech(Text=speech, OutputFormat="mp3", VoiceId="Mizuki")
-    except (BotoCoreError, ClientError) as error:
-        print(error)
-        sys.exit(-1)
-    if "AudioStream" in response:
-        with closing(response["AudioStream"]) as stream:
-            output = "/var/www/html/speech.mp3"
-            try:
-                with open(output, "wb") as file:
-                    file.write(stream.read())
-            except IOError as error:
-                print(error)
-                sys.exit(-1)
-            print("synthesize_speech OK ->>" + output)
-    else:
-        print("Could not stream audio")
-        sys.exit(-1)
-
 # Polly
-@route('/polly')
-def polly():
-    return template('polly')
+@route('/demopolly')
+def demopolly():
+    return template('demopolly')
 
 
 run(host='0.0.0.0', port=8080, debug=True, reloader=True)
