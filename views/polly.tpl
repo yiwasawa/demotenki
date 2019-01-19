@@ -39,7 +39,7 @@
 %        sys.exit(-1)
 %    if "AudioStream" in response:
 %        with closing(response["AudioStream"]) as stream:
-%            output = "/var/www/html/speech.mp3"
+%            output = "/var/www/html/speech3.mp3"
 %            try:
 %                with open(output, "wb") as file:
 %                    file.write(stream.read())
@@ -69,7 +69,7 @@
     <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">（朝）赤羽⇒新橋／（夜）新橋⇒赤羽</span></p>
 
     <audio controls>
-        <source src="http://13.113.245.130/speech.mp3" type="audio/mp3">
+        <source src="http://13.113.245.130/speech3.mp3" type="audio/mp3">
     </audio>
 
 
