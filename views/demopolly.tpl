@@ -27,38 +27,42 @@
 % sql4 = "SELECT TOP 1 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC"
 % cursor4.execute(sql4)
 % row4 = cursor4.fetchone()
-    
-% speech = "ただいまの南さいたまの気温は" + str(row4[1]) + "℃、湿度は" + str(row4[2]) + "％くらいです。"
+
+
+% import datetime
+% nowtime = datetime.datetime.now()
+% nowtime = nowtime + datetime.timedelta(hours=9)
+% nowtime = nowtime.strftime("%Y%m%d%H%M")
+
+% speech = "ただいまの南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいだなも。"
 
 % session = Session(region_name="ap-northeast-1")
 % polly = session.client("polly")
+% filename = "/var/www/html/" + nowtime + ".mp3"
 
 % response = polly.synthesize_speech(Text=speech, OutputFormat="mp3", VoiceId="Mizuki")
 % if "AudioStream" in response:
 %     with closing(response["AudioStream"]) as stream:
-%         output = "/var/www/html/speech3.mp3"
+%         output = filename
 %         with open(output, "wb") as file:
 %             file.write(stream.read())
 
+% filepath = "http://13.113.245.130/" + nowtime + ".mp3"
 
 <head>
-  <title>通勤時刻表</title>
+  <title>Amazon Polly</title>
 </head>
 
 <body>
 
   <div class="siimple-content--small">
 
-    <div class="siimple-h2">通勤時刻表</div>
+    <div class="siimple-h2">Amazon Polly</div>
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-
-
-    <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">（朝）赤羽⇒新橋／（夜）新橋⇒赤羽</span></p>
-
     <audio controls>
-        <source src="http://13.113.245.130/speech3.mp3" type="audio/mp3">
+        <source src="{{filepath}}" type="audio/mp3">
     </audio>
 
 
