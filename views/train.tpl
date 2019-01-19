@@ -35,7 +35,7 @@
 % row2 = cursor2.fetchone()
 
 <head>
-  <title>通勤時刻表2</title>
+  <title>通勤時刻表</title>
 </head>
 
 <body>
