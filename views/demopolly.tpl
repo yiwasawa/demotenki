@@ -53,7 +53,7 @@
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-    <div class="siimple-h3">{{nowtime}}時点</div>
+
 
     <p class="siimple-p"><span class="siimple-tag siimple-tag--teal">（朝）赤羽⇒新橋／（夜）新橋⇒赤羽</span></p>
 
