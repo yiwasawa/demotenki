@@ -91,7 +91,7 @@
           <div class="siimple-table-cell">{{row[3]}}</div>
           % row[4] = row[4].strip()
           % tenkiimg = tenkiicon.get(row[4],"icons8-barometer-50.png")
-          <div class="siimple-table-cell"><img src = "http://13.113.245.130:8080/file/tenkiicon/{{tenkiimg}}"></div>
+          <div class="siimple-table-cell"><img src = "http://13.113.245.130/file/tenkiicon/{{tenkiimg}}"></div>
           % row[6] = float(row[6]) * 100
           % row[6] = round(row[6],1)
 
