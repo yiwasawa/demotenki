@@ -34,7 +34,7 @@
 % nowtime = nowtime + datetime.timedelta(hours=9)
 % nowtime = nowtime.strftime("%Y%m%d%H%M%S")
 
-% speech = "お疲れさまです。ただいまの南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
+% speech = "お疲れさまです。生麦生米生卵、隣の客はよく柿食う客だ。今のさいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
 
 % session = Session(region_name="ap-northeast-1")
 % polly = session.client("polly")
