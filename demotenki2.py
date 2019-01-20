@@ -4,7 +4,8 @@ import sys
 sys.path.append('/home/ec2-user/.pyenv/versions/3.6.2/lib/python3.6/site-packages')
 sys.path.append('/home/ec2-user/.pyenv/versions/3.6.2/lib/python3.6/lib-dynload')
 sys.path.append('/home/ec2-user/.pyenv/versions/3.6.2/lib/python3.6')
-
+sys.path.append('/home/ec2-user/demotenki')
+sys.path.append('/home/ec2-user')
 
 from bottle import *
 import pyodbc
