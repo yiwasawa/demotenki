@@ -32,7 +32,7 @@
 % import datetime
 % nowtime = datetime.datetime.now()
 % nowtime = nowtime + datetime.timedelta(hours=9)
-% nowtime = nowtime.strftime("%Y%m%d%H%M")
+% nowtime = nowtime.strftime("%Y%m%d%H%M%S")
 
 % speech = "お疲れさまです。ただいまの南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
 
