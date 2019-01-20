@@ -1,4 +1,7 @@
-﻿import os
+﻿activate_this = '/path/to/env/bin/activate_this.py'
+execfile(activate_this, dict(__file__=activate_this))
+
+import os
 import sys
 
 sys.path.append('/home/ec2-user/.pyenv/versions/3.6.2/lib/python3.6/site-packages')
