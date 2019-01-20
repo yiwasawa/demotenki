@@ -50,14 +50,14 @@
 % filepath = "http://13.113.245.130/file/polly/" + nowtime + ".mp3"
 
 <head>
-  <title>Amazon Polly</title>
+  <title>話す気象台</title>
 </head>
 
 <body>
 
   <div class="siimple-content--small">
 
-    <div class="siimple-h2">Amazon Polly</div>
+    <div class="siimple-h2">話す気象台</div>
 
 
 
