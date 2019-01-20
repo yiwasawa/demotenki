@@ -34,11 +34,11 @@
 % nowtime = nowtime + datetime.timedelta(hours=9)
 % nowtime = nowtime.strftime("%Y%m%d%H%M")
 
-% speech = "ただいまの南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいだなも。"
+% speech = "ただいまの南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
 
 % session = Session(region_name="ap-northeast-1")
 % polly = session.client("polly")
-% filename = "/var/www/html/" + nowtime + ".mp3"
+% filename = "/home/ec2-user/demotenki/static/polly/" + nowtime + ".mp3"
 
 % response = polly.synthesize_speech(Text=speech, OutputFormat="mp3", VoiceId="Mizuki")
 % if "AudioStream" in response:
@@ -47,7 +47,7 @@
 %         with open(output, "wb") as file:
 %             file.write(stream.read())
 
-% filepath = "http://13.113.245.130/" + nowtime + ".mp3"
+% filepath = "http://13.113.245.130/file/polly/" + nowtime + ".mp3"
 
 <head>
   <title>Amazon Polly</title>
@@ -59,7 +59,7 @@
 
     <div class="siimple-h2">Amazon Polly</div>
 
-    <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
+
 
     <audio controls>
         <source src="{{filepath}}" type="audio/mp3">
