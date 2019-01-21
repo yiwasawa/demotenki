@@ -46,7 +46,7 @@ $("#testbtn").on("click", function () {
       url: "/demoform",  //POST送信を行うファイル名を指定
       type: "POST",
       data: formData,  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
-      datatype: "json"
+      dataType: "json"
   })
   .done(function(data){
 
