@@ -40,7 +40,8 @@ $("#testbtn").on("click", function () {
   $.ajax({
       url: "/demoform",  //POST送信を行うファイル名を指定
       type: "POST",
-      data: formData  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+      data: formData,  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+      datatype: "json"
   })
   .done(function(data){
     $("#testnameran").val(data.testname);
