@@ -27,6 +27,10 @@
     <input id="testbtn" type="submit" value="送信" /> <input type="reset" value="取り消し" />
     </form>
 
+    <div id="a">
+    a
+    </div>
+
   </div>
 </body>
 
@@ -45,6 +49,11 @@ $("#testbtn").on("click", function () {
       datatype: "json"
   })
   .done(function(data){
+
+    for(var i=0; i<data.length; i++){
+      $("#a").append(data[i].testname + "<br>")
+    }
+
     console.log(data);
     $("#testnameran").val(data.testname);
     $("#testitemran").val("テストデータ");
