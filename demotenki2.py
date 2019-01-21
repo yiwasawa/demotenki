@@ -156,8 +156,11 @@ def search():
     testitem = request.forms.testitem
 
     # JSON的なのを返す。
-    testdata = {"testname":"testname1", "testitem":"testitem1", "message":"成功です。"}
-    
+    testdata = [
+        {"id":"1", testname":"testname1", "testitem":"testitem1"},
+        {"id":"2", testname":"testname2", "testitem":"testitem2"},
+        {"id":"3", testname":"testname3", "testitem":"testitem3"}
+    ]
 
     return json.dumps(testdata)
 
