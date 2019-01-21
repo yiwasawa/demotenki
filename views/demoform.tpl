@@ -42,7 +42,7 @@ $("#testbtn").on("click", function () {
       type: "POST",
       data: formData  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
   })
-  .done(function(data)){
+  .done(function(data){
     $("#testnameran").val(data.testname);
     $("#testitenran").val(data.testitem);
 
