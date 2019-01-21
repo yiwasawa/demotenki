@@ -142,7 +142,12 @@ def demopolly():
     return template('demopolly')
 
 
+# Form
+@route('/demoform')
+def demoform():
+    return template('demoform')
+    
+
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
-
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
