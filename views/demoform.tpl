@@ -23,35 +23,31 @@
     <form id="demoform" action="javascript:void(0);">
     testname :<input type="text" id="testnameran" name="testname" />
     testitem :<input type="text" id="testitemran" name="testitem" />
-    <input id="test" type="submit" value="送信" /> <input type="reset" value="取り消し" />
+    <input id="testbtn" type="submit" value="送信" /> <input type="reset" value="取り消し" />
     </form>
 
   </div>
 </body>
 
 <script type="text/javascript">
-$(function () {
-  $('input#test').click(function () {
 
-    // 一括してフォームデータを取得
-    var formData = $('#demoform').serialize();
+$("#testbtn").on("click", function () {
 
-    console.log(formData);
-      $.ajax({
-          url: "/demoform",  //POST送信を行うファイル名を指定
-          type: "POST",
-          data: formData  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
-      })
+  // 一括してフォームデータを取得
+  var formData = $("#demoform").serialize();
+  console.log(formData);
 
-      .done(function(data)){
-        alert(JSON.stringify(data));
-        $("#testnameran").val(data.testname);
-        $("#testitenran").val(data.testitem);
-
-      });
-
-
+  $.ajax({
+      url: "/demoform",  //POST送信を行うファイル名を指定
+      type: "POST",
+      data: formData  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+  })
+  .done(function(data)){
+    $("#testnameran").val(data.testname);
+    $("#testitenran").val(data.testitem);
 
   });
+
 });
+
 </script>
