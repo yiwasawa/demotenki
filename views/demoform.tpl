@@ -23,6 +23,7 @@
     <form id="demoform" action="javascript:void(0);">
     testname :<input type="text" id="testnameran" name="testname" />
     testitem :<input type="text" id="testitemran" name="testitem" />
+    textarea :<textarea name="example" id="textarearan" cols="50" rows="10"></textarea>
     <input id="testbtn" type="submit" value="送信" /> <input type="reset" value="取り消し" />
     </form>
 
@@ -47,6 +48,7 @@ $("#testbtn").on("click", function () {
     console.log(data);
     $("#testnameran").val(data.testname);
     $("#testitemran").val("テストデータ");
+    $("#testarearan").value(data);
     alert(data);
 
   });
