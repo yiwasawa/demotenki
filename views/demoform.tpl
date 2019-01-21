@@ -20,9 +20,9 @@
     <div class="siimple-h2">demoform</div>
 
     <b>検索語句を入れてください。</b>
-    <form id="demoform" action="/demoform" method="post" accept-charset="UTF-8">
-    testname :<input type="text" name="testname" />
-    testitem :<input type="text" name="testitem" />
+    <form id="demoform" action="javascript:void(0);">
+    testname :<input type="text" id="testnameran" name="testname" />
+    testitem :<input type="text" id="testitemran" name="testitem" />
     <input id="test" type="submit" value="送信" /> <input type="reset" value="取り消し" />
     </form>
 
@@ -41,7 +41,17 @@ $(function () {
           url: "/demoform",  //POST送信を行うファイル名を指定
           type: "POST",
           data: formData  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+      })
+
+      .done(function(data)){
+        alert(JSON.stringify(data));
+        $("#testnameran").val(data.testname);
+        $("#testitenran").val(data.testitem);
+
       });
+
+
+
   });
 });
 </script>
