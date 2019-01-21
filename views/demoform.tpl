@@ -46,7 +46,7 @@ $("#testbtn").on("click", function () {
   .done(function(data){
     $("#testnameran").val(data.testname);
     $("#testitemran").val("テストデータ");
-    alert("OKのはず。");
+    alert(data.message);
 
   });
 
