@@ -45,11 +45,9 @@ $("#testbtn").on("click", function () {
   })
   .done(function(data){
     console.log(data);
-    var test = JSON.stringify(data)
-    console.log(test);    
-    $("#testnameran").val(test.testname);
+    $("#testnameran").val(data[0].testname);
     $("#testitemran").val("テストデータ");
-    alert(test.message);
+    alert(data[0]);
 
   });
 
