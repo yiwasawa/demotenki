@@ -48,7 +48,7 @@ $("#testbtn").on("click", function () {
     console.log(data);
     $("#testnameran").val(data.testname);
     $("#testitemran").val("テストデータ");
-    $("#testarearan").value(data);
+    $("#textarearan").value(data);
     alert(data);
 
   });
