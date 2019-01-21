@@ -154,7 +154,9 @@ def search():
     testname = request.forms.testname
     testitem = request.forms.testitem
 
-    return 'とりあえず。'
+    # JSON的なのを返す。
+    return '[{"testname":"testname1", "testitem":"testitem1"}]'
+
 
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)

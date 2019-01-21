@@ -10,6 +10,7 @@
 
 <head>
   <title>demoform</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,11 +20,28 @@
     <div class="siimple-h2">demoform</div>
 
     <b>検索語句を入れてください。</b>
-    <form action="/demoform" method="post" accept-charset="UTF-8">
+    <form id="demoform" action="/demoform" method="post" accept-charset="UTF-8">
     testname :<input type="text" name="testname" />
     testitem :<input type="text" name="testitem" />
-    <input type="submit" value="送信" /> <input type="reset" value="取り消し" />
+    <input id="test" type="submit" value="送信" /> <input type="reset" value="取り消し" />
     </form>
 
   </div>
 </body>
+
+<script type="text/javascript">
+$(function () {
+  $('input#test').click(function () {
+
+    // 一括してフォームデータを取得
+    var formData = $('#demoform').serialize();
+
+    console.log(formData);
+      $.ajax({
+          url: "/demoform",  //POST送信を行うファイル名を指定
+          type: "POST",
+          data: formData  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+      });
+  });
+});
+</script>
