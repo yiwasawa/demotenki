@@ -19,7 +19,7 @@
     <div class="siimple-h2">demoform</div>
 
     <b>検索語句を入れてください。</b>
-    <form action="/" method="post" accept-charset="UTF-8">
+    <form action="/demoform" method="post" accept-charset="UTF-8">
     testname :<input type="text" name="testname" />
     testitem :<input type="text" name="testitem" />
     <input type="submit" value="送信" /> <input type="reset" value="取り消し" />

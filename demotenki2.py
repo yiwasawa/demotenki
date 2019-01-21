@@ -146,7 +146,16 @@ def demopolly():
 @route('/demoform')
 def demoform():
     return template('demoform')
-    
+
+@route('/demoform', method='POST')
+def search():
+
+    # フォームの入力値を受け取る感じ。
+    testname = request.forms.testname
+    testitem = request.forms.testitem
+
+    return 'とりあえず。'
+
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
