@@ -14,6 +14,7 @@ from botocore.exceptions import BotoCoreError, ClientError
 from contextlib import closing
 
 import subprocess
+import json
 
 # 表紙
 @route('/')
@@ -155,7 +156,9 @@ def search():
     testitem = request.forms.testitem
 
     # JSON的なのを返す。
-    return '{["testname":"testname1", "testitem":"testitem1", "message":"成功です。"]}'
+    testdata = [{"testname":"testname1", "testitem":"testitem1", "message":"成功です。"}]
+
+    return json.dumps(testdata)
 
 
 
