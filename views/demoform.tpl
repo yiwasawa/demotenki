@@ -44,6 +44,7 @@ $("#testbtn").on("click", function () {
       datatype: "json"
   })
   .done(function(data){
+    console.log(data);
     $("#testnameran").val(data.testname);
     $("#testitemran").val("テストデータ");
     alert(data.message);
