@@ -174,7 +174,7 @@ def postscript():
     except:
         raise ValueError
     
-    return body
+    return json.dumps(body)
 
 
 
