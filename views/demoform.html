@@ -73,6 +73,7 @@
     .done(function(data){
       console.log(data);
       console.log(data[0].filepath);
+      filepath = data[0].filepath;
       $('#a').append('<audio controls><source src="{{filepath}}" type="audio/mp3"></audio>');
     });
   });
