@@ -16,6 +16,10 @@ from contextlib import closing
 import subprocess
 import json
 
+@hook('after_request')
+def enable_cors():
+    response.headers['Access-Control-Allow-Origin'] = '*'
+
 # 表紙
 @route('/')
 @route('/top')

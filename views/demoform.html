@@ -52,11 +52,13 @@
     $("#scriptfield").val("本日は晴天なり。");
 
     $.ajax({
-      url: "/getsamplescript",
+      crossDomain: true,
+      url: "http://13.113.245.130/getsamplescript",
       type: "GET",
       dataType: "json"
     })
     .done(function(data){
+      console.log(data);
       $("#scriptfield").val(data);
     });
 
