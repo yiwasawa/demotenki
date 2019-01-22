@@ -195,9 +195,12 @@ def postscript():
 
     filepath = "http://13.113.245.130/file/polly/" + nowtime + ".mp3"
 
+    result = {"filepath":filepath, "script":script, "time":nowtime}
+
     # JSONにエンコードして返す。
     # return json.dumps(body)
-    return filepath
+    return json.dumps(result)
+
 
 @route('/demoform', method='POST')
 def search():
