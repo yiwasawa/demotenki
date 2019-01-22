@@ -163,7 +163,8 @@ def getsamplescript():
     row4 = cursor4.fetchone()
 
     script = "今の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
-    return '[{"script":"' + script + ''"}]'
+
+    return '[{"script":"' + script + '"}]'
 
 @route('/demoform', method='POST')
 def search():
