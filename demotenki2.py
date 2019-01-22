@@ -15,6 +15,7 @@ from contextlib import closing
 
 import subprocess
 import json
+import datetime
 
 @hook('after_request')
 def enable_cors():
@@ -174,9 +175,29 @@ def postscript():
     except:
         raise ValueError
     
-    return json.dumps(body)
+    script = body.script
 
+    # 現在時刻の取得
+    nowtime = datetime.datetime.now()
+    nowtime = nowtime + datetime.timedelta(hours=9)
+    nowtime = nowtime.strftime("%Y%m%d%H%M%S")
 
+    session = Session(region_name="ap-northeast-1")
+    polly = session.client("polly")
+    filename = "/home/ec2-user/demotenki/static/polly/" + nowtime + ".mp3"
+
+    response = polly.synthesize_speech(Text=script, OutputFormat="mp3", VoiceId="Mizuki")
+    if "AudioStream" in response:
+      with closing(response["AudioStream"]) as stream:
+        output = filename
+        with open(output, "wb") as file:
+          file.write(stream.read())
+
+    filepath = "http://13.113.245.130/file/polly/" + nowtime + ".mp3"
+
+    # JSONにエンコードして返す。
+    # return json.dumps(body)
+    return filepath
 
 @route('/demoform', method='POST')
 def search():
