@@ -151,7 +151,7 @@ def demoform():
 # サンプル原稿取得
 @route('/getsamplescript')
 def getsamplescript():
-    return 'これがサンプル原稿です。'
+    return '[{"script":"これがサンプル原稿です。"}]'
 
 @route('/demoform', method='POST')
 def search():
