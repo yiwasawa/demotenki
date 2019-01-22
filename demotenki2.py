@@ -21,6 +21,7 @@ import datetime
 def enable_cors():
     response.headers['Access-Control-Allow-Origin']  = request.headers['Origin']
     response.headers['Access-Control-Allow-Methods'] = 'PUT, GET, POST, DELETE, OPTIONS'
+    response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token, Authorization'
 
 # 表紙
 @route('/')
