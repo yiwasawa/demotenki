@@ -175,7 +175,7 @@ def postscript():
     except:
         raise ValueError
     
-    script = body.script
+    script = body["script"]
 
     # 現在時刻の取得
     nowtime = datetime.datetime.now()
