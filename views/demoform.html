@@ -17,15 +17,7 @@
 
   <div class="siimple-content--small">
 
-    <div class="siimple-h2">demoform</div>
-
-    <b>検索語句を入れてください。テスト</b>
-    <form id="demoform" action="javascript:void(0);">
-    testname :<input type="text" id="testnameran" name="testname" />
-    testitem :<input type="text" id="testitemran" name="testitem" />
-    textarea :<textarea name="example" id="textarearan" cols="50" rows="10"></textarea>
-    <input id="testbtn" type="submit" value="送信" /> <input type="reset" value="取り消し" />
-    </form>
+    <div class="siimple-h2">気象台開発室</div>
 
     <div class="siimple-form">
       <div class="siimple-form-field">
@@ -80,37 +72,9 @@
     })
     .done(function(data){
       console.log(data);
+      console.log(data[0].filepath)
+      $('#a').append('<audio controls><source src="{{filepath}}" type="audio/mp3"></audio>');
     });
   });
-
-
-
-$("#testbtn2").on("click", function () {
-
-  // 一括してフォームデータを取得
-  var formData = $("#demoform").serialize();
-  console.log(formData);
-
-  $.ajax({
-      url: "/demoform",
-      type: "POST",
-      data: formData,
-      dataType: "json"
-  })
-  .done(function(data){
-
-    for(var i=0; i<data.length; i++){
-      $("#a").append(data[i].testname + "<br>")
-    }
-
-    console.log(data);
-    $("#testnameran").val(data.testname);
-    $("#testitemran").val("テストデータ");
-    $("#textarearan").val(data);
-    alert(data);
-
-  });
-
-});
 
 </script>
