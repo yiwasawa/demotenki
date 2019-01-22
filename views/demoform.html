@@ -74,12 +74,13 @@
       crossDomain: true,
       url: "http://13.113.245.130/postscript",
       method: "POST",
-      data: JSON.stringify(sendScript),
+      data: sendScript,
       contentType: 'application/json',
       dataType: "json"
     })
     .done(function(data){
-
+      console.log(data);
+      $("#testnameran").val(data.script);
     });
   });
 
