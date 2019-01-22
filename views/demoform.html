@@ -74,7 +74,8 @@
       crossDomain: true,
       url: "http://13.113.245.130/postscript",
       method: "POST",
-      data: sendScript,
+      data: JSON.stringify(sendScript),
+      contentType: 'application/json',
       dataType: "json"
     })
     .done(function(data){
