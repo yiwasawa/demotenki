@@ -27,6 +27,17 @@
     <input id="testbtn" type="submit" value="送信" /> <input type="reset" value="取り消し" />
     </form>
 
+    <div class="siimple-form">
+      <div class="siimple-form-field">
+        <label class="siimple-label">原稿を入力してください。</label><br>
+        <textarea class="siimple-textarea siimple-textarea--fluid" rows="5"></textarea>
+      </div>
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue">サンプル原稿の入力</div>
+        <div class="siimple-btn siimple-btn--blue" id="testbtn2">送信</div>
+      </div>
+    </div>
+
     <div id="a">
     a
     </div>
@@ -36,7 +47,7 @@
 
 <script type="text/javascript">
 
-$("#testbtn").on("click", function () {
+$("#testbtn2").on("click", function () {
 
   // 一括してフォームデータを取得
   var formData = $("#demoform").serialize();
