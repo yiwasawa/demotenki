@@ -148,6 +148,11 @@ def demopolly():
 def demoform():
     return template('demoform')
 
+# サンプル原稿取得
+@route('/getsamplescript')
+def getsamplescript():
+    return 'これがサンプル原稿です。'
+
 @route('/demoform', method='POST')
 def search():
 

@@ -30,11 +30,11 @@
     <div class="siimple-form">
       <div class="siimple-form-field">
         <label class="siimple-label">原稿を入力してください。</label><br>
-        <textarea class="siimple-textarea siimple-textarea--fluid" rows="5"></textarea>
+        <textarea class="siimple-textarea siimple-textarea--fluid" id="scriptfield" rows="5"></textarea>
       </div>
       <div class="siimple-form-field">
-        <div class="siimple-btn siimple-btn--blue">サンプル原稿の入力</div>
-        <div class="siimple-btn siimple-btn--blue" id="testbtn2">送信</div>
+        <div class="siimple-btn siimple-btn--blue" id="getsamplebutton">サンプル原稿の入力</div>
+        <div class="siimple-btn siimple-btn--blue" id="sendbutton">送信</div>
       </div>
     </div>
 
@@ -47,6 +47,21 @@
 
 <script type="text/javascript">
 
+  $("#getsamplebutton").on("click", function(){
+    
+    $("#scriptfield").val("本日は晴天なり。");
+
+    $.ajax({
+      url: "/getsamplescript",
+      type: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      $("#scriptfield").val(data);
+    });
+
+  });
+
 $("#testbtn2").on("click", function () {
 
   // 一括してフォームデータを取得
@@ -54,9 +69,9 @@ $("#testbtn2").on("click", function () {
   console.log(formData);
 
   $.ajax({
-      url: "/demoform",  //POST送信を行うファイル名を指定
+      url: "/demoform",
       type: "POST",
-      data: formData,  //POST送信するデータを指定（{ 'hoge': 'hoge' }のように連想配列で直接書いてもOK）
+      data: formData,
       dataType: "json"
   })
   .done(function(data){
