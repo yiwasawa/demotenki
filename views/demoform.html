@@ -31,7 +31,6 @@
     </div>
 
     <div id="a">
-    a
     </div>
 
   </div>
@@ -73,6 +72,8 @@
     .done(function(data){
       console.log(data);
       console.log(data.filepath);
+
+      $("#a").append('<audio controls><source src="' + data.filepath + '" type="audio/mp3"></audio>');
 
     });
   });
