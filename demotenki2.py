@@ -155,7 +155,15 @@ def demoform():
 # サンプル原稿取得
 @route('/getsamplescript')
 def getsamplescript():
-    return '[{"script":"これがサンプル原稿です。"}]'
+
+    cnxn4 = pyodbc.connect(DB_CONNECT_02)
+    cursor4 = cnxn4.cursor()
+    sql4 = "SELECT TOP 1 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC"
+    cursor4.execute(sql4)
+    row4 = cursor4.fetchone()
+
+    script = "今の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
+    return '[{"script":"' + script + ''"}]'
 
 @route('/demoform', method='POST')
 def search():

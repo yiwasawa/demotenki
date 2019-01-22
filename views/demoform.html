@@ -33,7 +33,7 @@
         <textarea class="siimple-textarea siimple-textarea--fluid" id="scriptfield" rows="5"></textarea>
       </div>
       <div class="siimple-form-field">
-        <div class="siimple-btn siimple-btn--blue" id="getsamplebutton">サンプル原稿の入力</div>
+        <div class="siimple-btn siimple-btn--blue" id="getsamplebutton">サンプル取得</div>
         <div class="siimple-btn siimple-btn--blue" id="sendbutton">送信</div>
       </div>
     </div>
@@ -47,10 +47,8 @@
 
 <script type="text/javascript">
 
+  //サンプル取得ボタン
   $("#getsamplebutton").on("click", function(){
-    
-    $("#scriptfield").val("本日は晴天なり。");
-
     $.ajax({
       crossDomain: true,
       url: "http://13.113.245.130/getsamplescript",
@@ -59,9 +57,9 @@
     })
     .done(function(data){
       console.log(data);
-      $("#scriptfield").val(data);
+      console.log(data[0].script);
+      $("#scriptfield").val(data[0].script);
     });
-
   });
 
 $("#testbtn2").on("click", function () {
