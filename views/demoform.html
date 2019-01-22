@@ -52,7 +52,7 @@
     $.ajax({
       crossDomain: true,
       url: "http://13.113.245.130/getsamplescript",
-      type: "GET",
+      method: "GET",
       dataType: "json"
     })
     .done(function(data){
@@ -61,6 +61,28 @@
       $("#scriptfield").val(data[0].script);
     });
   });
+
+  //送信ボタン
+  $("#sendbutton").on("click", function(){
+
+    //送信データを準備
+    var sendScript = {};
+    sendScript.script = $("#scriptfield").val();
+    console.log(sendScript);
+
+    $.ajax({
+      crossDomain: true,
+      url: "http://13.113.245.130/postscript",
+      method: "POST",
+      data: sendScript,
+      dataType: "json"
+    })
+    .done(function(data){
+
+    });
+  });
+
+
 
 $("#testbtn2").on("click", function () {
 

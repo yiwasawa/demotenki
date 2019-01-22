@@ -162,9 +162,21 @@ def getsamplescript():
     cursor4.execute(sql4)
     row4 = cursor4.fetchone()
 
-    script = "今の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
+    script = "最新の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
 
     return '[{"script":"' + script + '"}]'
+
+@route('/postscript', method='POST')
+def postscript():
+
+    try:
+        body = json.load(request.body)
+    except:
+        raise ValueError
+    
+    return json.dumps(body)
+
+
 
 @route('/demoform', method='POST')
 def search():
