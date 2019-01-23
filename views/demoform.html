@@ -92,6 +92,7 @@
 
   //サンプル値取得ボタン
   $("#getsamplebutton").on("click", function(){
+    console.log("サンプル値を取得します。")
     $.ajax({
       crossDomain: true,
       url: "http://13.113.245.130/getsamplescript",
@@ -99,6 +100,7 @@
       dataType: "json"
     })
     .done(function(data){
+      console.log("サンプル値を取得しました。")
       console.log(data);
       console.log(data[0].script);
       $("#scriptfield").val(data[0].script);
@@ -107,9 +109,7 @@
 
   //サンプル値取得ボタン
   $("#bc_getsamplebutton").on("click", function(){
-
     console.log("サンプル値を取得します。")
-
     $.ajax({
       crossDomain: true,
       url: "http://13.113.245.130/mc_sendassetfrom",
@@ -117,8 +117,8 @@
       dataType: "json"
     })
     .done(function(data){
+      console.log("サンプル値を取得しました。")
       console.log(data);
-      console.log(data[0].script);
       $("#bc_from_addressfield").val(data[0].fromaddress);
       $("#bc_to_addressfield").val(data[0].toaddress);
       $("#bc_currencyfield").val(data[0].currency);
