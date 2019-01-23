@@ -10,10 +10,10 @@ payload = {'method':'getaddressbalances','params':['1PN6wchQ348Rn8rW5qgbgQZAytZe
 response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
 data_multi1 = response_multi1.json()
+print(data_multi1)
 
-qty = json.dumps(data_multi1["result"]["qty"])
 
-print(qty)
+
 
 
 
