@@ -176,7 +176,7 @@
     })
     .done(function(data){
       console.log(data);
-      console.log(data.qty);
+      JSON.stringify(data);
       $("#c").append('<p>' + data + '</p>');
 
     });
