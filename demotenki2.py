@@ -263,8 +263,6 @@ def mc_sendassetfrom():
     data_multi1 = response_multi1.json()
 
     print(data_multi1)
-    JSON.stringify(data_multi1)
-    print(data_multi1)
 
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
