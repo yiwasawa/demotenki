@@ -107,6 +107,28 @@
 
   //サンプル値取得ボタン
   $("#bc_getsamplebutton").on("click", function(){
+
+    $.ajax({
+      crossDomain: true,
+      url: "http://13.113.245.130/mc_sendassetfrom",
+      method: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      console.log(data);
+      console.log(data[0].script);
+      $("#bc_from_addressfield").val(data[0].fromaddress);
+      $("#bc_to_addressfield").val(data[0].toaddress);
+      $("#bc_currencyfield").val(data[0].currency);
+      $("#bc_qtyfield").val(data[0].qty);
+
+    });
+
+
+
+
+
+
   });
 
   //送信ボタン
