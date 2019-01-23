@@ -24,7 +24,7 @@
     <div class="siimple-h3">Amazon Polly API</div>
 
     <p class="siimple-p">
-      Amazon Polly APIを使って、入力した原稿をmp3化します。サンプル取得を押すと、最新の南さいたまの気温と湿度を取得できます。
+      Amazon Polly APIを使って、入力した原稿をmp3化します。サンプル値取得を押すと、最新の南さいたまの気温と湿度を取得できます。
     </p>
 
     <div class="siimple-form">
@@ -77,6 +77,7 @@
         <input type="text" class="siimple-input siimple-input--fluid" id="bc_qtyfield">
       </div>
       <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="bc_getsamplebutton">サンプル取得</div>
         <div class="siimple-btn siimple-btn--blue" id="bc_qtysendbutton">送金</div>
       </div>
     </div> 
@@ -89,7 +90,7 @@
 
 <script type="text/javascript">
 
-  //サンプル取得ボタン
+  //サンプル値取得ボタン
   $("#getsamplebutton").on("click", function(){
     $.ajax({
       crossDomain: true,
@@ -102,6 +103,10 @@
       console.log(data[0].script);
       $("#scriptfield").val(data[0].script);
     });
+  });
+
+  //サンプル値取得ボタン
+  $("#bc_getsamplebutton").on("click", function(){
   });
 
   //送信ボタン
