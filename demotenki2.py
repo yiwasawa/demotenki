@@ -263,12 +263,13 @@ def mc_sendassetfrom():
     data_multi1 = response_multi1.json()
 
     print(data_multi1)
+    JSON.stringify(data_multi1)
+    print(data_multi1)
 
     # qty = json.dumps(data_multi1["result"][0]["qty"])
-
     # result = {"qty":qty}
     # return json.dumps(result)
-    return "OK"
+    return data_multi1
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)

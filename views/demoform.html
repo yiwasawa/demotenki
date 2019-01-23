@@ -42,7 +42,7 @@
     </div>
 
     <div class="siimple-h3">ブロックチェーン（工事中）</div>
-
+    <div class="siimple-h4">残高照会</div>
     <p class="siimple-p">
       アドレスを入力して残高を呼び出します。
     </p>
@@ -60,6 +60,7 @@
     <div id="b">
     </div>
 
+    <div class="siimple-h4">送金</div>
     <p class="siimple-p">
       送信元、送信先、金額を指定して送金を行います。
     </p>
@@ -79,6 +80,9 @@
         <div class="siimple-btn siimple-btn--blue" id="bc_qtysendbutton">送金</div>
       </div>
     </div> 
+
+    <div id="c">
+    </div>
 
   </div>
 </body>
@@ -173,7 +177,7 @@
     .done(function(data){
       console.log(data);
       console.log(data.qty);
-      $("#b").append('<p>' + data.qty + '</p>');
+      $("#c").append('<p>' + data + '</p>');
 
     });
   });
