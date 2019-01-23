@@ -257,7 +257,7 @@ def mc_sendassetfrom():
     qty = body["qty"]
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'sendassetfrom','params':[fromaddress, toaddress, currency, qty]}
+    payload = {'method':'sendassetfrom','params':[fromaddress, toaddress, currency, int(qty)]}
     response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     data_multi1 = response_multi1.json()
