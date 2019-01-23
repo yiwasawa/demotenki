@@ -11,3 +11,11 @@ response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers
 
 data_multi1 = response_multi1.json()
 
+qty = json.dumps(data_multi1["result"]["qty"])
+
+print(qty)
+
+
+
+
+
