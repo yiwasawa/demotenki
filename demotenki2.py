@@ -243,8 +243,30 @@ def mc_getaddressbalances():
     result = {"qty":qty}
     return json.dumps(result)
 
+@route('/mc_sendassetfrom', method='POST')
+def mc_sendassetfrom():
 
+    try:
+        body = json.load(request.body)
+    except:
+        raise ValueError
+    
+    fromaddress = body["fromaddress"]
+    toaddress = body["toaddress"]
+    currency = body["currency"]
+    qty = body["qty"]
 
+    headers = {'apikey':MULTIAPIKEY}
+    payload = {'method':'sendassetfrom','params':[fromaddress, toaddress, currency, qty]}
+    response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
+
+    data_multi1 = response_multi1.json()
+
+    # qty = json.dumps(data_multi1["result"][0]["qty"])
+
+    # result = {"qty":qty}
+    # return json.dumps(result)
+    return "OK"
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)

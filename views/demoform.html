@@ -17,7 +17,7 @@
 
   <div class="siimple-content--small">
 
-    <div class="siimple-h2">気象台開発室</div>
+    <div class="siimple-h2">開発室</div>
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
@@ -44,21 +44,39 @@
     <div class="siimple-h3">ブロックチェーン（工事中）</div>
 
     <p class="siimple-p">
-      ブロックチェーン（工事中）
+      アドレスを入力して残高を呼び出します。
     </p>
 
     <div class="siimple-form">
-        <div class="siimple-form-field">
-            <div class="siimple-form-field-label">口座アドレス</div>
-            <input type="text" class="siimple-input siimple-input--fluid" id="bc_addressfield">
-        </div>
-        <div class="siimple-form-field">
-            <div class="siimple-btn siimple-btn--blue" id="bc_sendbutton">送信</div>
-        </div>
-      </div> 
-
-      <div id="b">
+      <div class="siimple-form-field">
+        <div class="siimple-form-field-label">口座アドレス</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="bc_addressfield">
       </div>
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="bc_sendbutton">送信</div>
+      </div>
+    </div> 
+
+    <div id="b">
+    </div>
+
+    <p class="siimple-p">
+      送信元、送信先、金額を指定して送金を行います。
+    </p>
+  
+    <div class="siimple-form">
+      <div class="siimple-form-field">
+        <div class="siimple-form-field-label">送信元アドレス</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="bc_from_addressfield">
+        <div class="siimple-form-field-label">送信先アドレス</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="bc_to_addressfield">
+        <div class="siimple-form-field-label">金額</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="bc_qtyfield">
+      </div>
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="bc_qtysendbutton">送金</div>
+      </div>
+    </div> 
 
   </div>
 </body>
