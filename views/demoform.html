@@ -70,6 +70,8 @@
         <input type="text" class="siimple-input siimple-input--fluid" id="bc_from_addressfield">
         <div class="siimple-form-field-label">送信先アドレス</div>
         <input type="text" class="siimple-input siimple-input--fluid" id="bc_to_addressfield">
+        <div class="siimple-form-field-label">通貨</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="bc_currencyfield">
         <div class="siimple-form-field-label">金額</div>
         <input type="text" class="siimple-input siimple-input--fluid" id="bc_qtyfield">
       </div>
@@ -123,6 +125,7 @@
     });
   });
 
+  //ブロックチェーン1
   //送信ボタン
   $("#bc_sendbutton").on("click", function(){
 
@@ -145,9 +148,35 @@
       $("#b").append('<p>' + data.qty + '</p>');
 
     });
-});
+  });
 
+  //ブロックチェーン2
+  //送信ボタン
+  $("#bc_qtysendbutton").on("click", function(){
 
+    //送信データを準備
+    var sendScript = {};
+    sendScript.fromaddress = $("#bc_from_addressfield").val();
+    sendScript.toaddress = $("bc_to_addressfield").val();
+    sendScript.currency = $("bc_currencyfield").val();    
+    sendScript.qty = $("#bc_qtyfield").val();
+    console.log(sendScript);
+
+    $.ajax({
+      crossDomain: true,
+      url: "http://13.113.245.130/mc_sendassetfrom",
+      method: "POST",
+      data: JSON.stringify(sendScript),
+      contentType: 'application/json',
+      dataType: "json"
+    })
+    .done(function(data){
+      console.log(data);
+      console.log(data.qty);
+      $("#b").append('<p>' + data.qty + '</p>');
+
+    });
+  });
 
 
 
