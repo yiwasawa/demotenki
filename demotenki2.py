@@ -275,7 +275,7 @@ def getsamplescript():
 
     currency = CURRENCY
 
-    return '[{"fromaddress":"1TgN4QggTGgyN8hPcda5qQPA5t2kjj9zXpxMhA","toaddress":"1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s","currency":currency, "qty":"10"}]'
+    return '[{"fromaddress":"1TgN4QggTGgyN8hPcda5qQPA5t2kjj9zXpxMhA","toaddress":"1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s","currency":[currency], "qty":"10"}]'
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
