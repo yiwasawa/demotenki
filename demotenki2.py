@@ -16,6 +16,7 @@ from contextlib import closing
 import subprocess
 import json
 import datetime
+import requests
 
 @hook('after_request')
 def enable_cors():
@@ -218,6 +219,30 @@ def search():
     ]
 
     return json.dumps(testdata)
+
+
+
+@route('/mc_getaddressbalances', method='POST')
+def mc_getaddressbalances():
+
+    try:
+        body = json.load(request.body)
+    except:
+        raise ValueError
+    
+    address = body["address"]
+
+    headers = {'apikey':MULTIAPIKEY}
+    payload = {'method':'getaddressbalances','params':[address]}
+    response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
+
+    data_multi1 = response_multi1.json()
+
+    qty = json.dumps(data_multi1["result"][0]["qty"])
+
+    result = {"qty":qty}
+    return json.dumps(result)
+
 
 
 

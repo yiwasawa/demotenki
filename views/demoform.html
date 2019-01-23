@@ -41,6 +41,25 @@
     <div id="a">
     </div>
 
+    <div class="siimple-h3">ブロックチェーン（工事中）</div>
+
+    <p class="siimple-p">
+      ブロックチェーン（工事中）
+    </p>
+
+    <div class="siimple-form">
+        <div class="siimple-form-field">
+            <div class="siimple-form-field-label">口座アドレス</div>
+            <input type="text" class="siimple-input siimple-input--fluid" id="bc_addressfield">
+        </div>
+        <div class="siimple-form-field">
+            <div class="siimple-btn siimple-btn--blue" id="bc_sendbutton">送信</div>
+        </div>
+      </div> 
+
+      <div id="b">
+      </div>
+
   </div>
 </body>
 
@@ -85,5 +104,34 @@
 
     });
   });
+
+  //送信ボタン
+  $("#bc_sendbutton").on("click", function(){
+
+    //送信データを準備
+    var sendScript = {};
+    sendScript.script = $("#bc_addressfield").val();
+    console.log(sendScript);
+
+    $.ajax({
+      crossDomain: true,
+      url: "http://13.113.245.130/mc_getaddressbalances",
+      method: "POST",
+      data: JSON.stringify(sendScript),
+      contentType: 'application/json',
+      dataType: "json"
+    })
+    .done(function(data){
+      console.log(data);
+      console.log(data.qty);
+      $("#b").append('<p>' + data.qty + '</p>');
+
+    });
+});
+
+
+
+
+
 
 </script>
