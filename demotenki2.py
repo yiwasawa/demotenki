@@ -18,6 +18,8 @@ import json
 import datetime
 import requests
 
+import binascii
+
 @hook('after_request')
 def enable_cors():
     response.headers['Access-Control-Allow-Origin'] = '*'
@@ -296,14 +298,15 @@ def mc_getaccountname():
 
     print(data_multi1)
 
-    name = json.dumps(data_multi1["result"][0]["data"])
+    data = json.dumps(data_multi1["result"][0]["data"])
 
-    print(name)
+    print(data)
 
-    return name
+    accountname = binascii.unhexlify(data).decode('utf-8')
 
+    print(accountname)
 
-
+    return accountname
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
