@@ -249,8 +249,8 @@
   })
   .done(function(data){
     console.log(data);
-    log = JSON.stringify(data);
-    $("#d").append('<p>' + log + '</p>');
+    // log = JSON.stringify(data);
+    $("#d").append('<p>' + data.accountname + '</p>');
     });
   });
 
