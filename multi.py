@@ -19,5 +19,6 @@ for key in data_multi1:
 for value in data_multi1.values():
   print(value)
 
-print(data_multi1[data_multi1.keys()[0]])
+for key in data_multi1.keys():
+  print(key)
 
