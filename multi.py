@@ -13,8 +13,10 @@ response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers
 data_multi1 = response_multi1.json()
 print(data_multi1)
 
-for key in data_multi1
+for key in data_multi1:
   print(key)
 
+for value in data_multi1.values():
+  print(value)
 
 
