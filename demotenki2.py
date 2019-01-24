@@ -290,14 +290,17 @@ def mc_getaccountname():
     payload = {'method':'liststreamkeyitems','params':['accountname',address]}
     response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
+    # response_multi1はrequestsのオブジェクトで、requests.json()ということ。
+    # pythonの辞書型にデコードされる。
     data_multi1 = response_multi1.json()
 
     print(data_multi1)
 
-    # qty = json.dumps(data_multi1["result"][0]["qty"])
-    # result = {"qty":qty}
-    # return json.dumps(result)
-    return data_multi1
+    name = json.dumps(data_multi1["result"][0]["data"])
+
+    print(name)
+
+    return name
 
 
 
