@@ -300,7 +300,7 @@ def mc_getaccountname():
 
     data = json.dumps(data_multi1["result"][0]["data"])
 
-    print(data)
+    data = bytes(data)
 
     accountname = binascii.unhexlify(data).decode('utf-8')
 
