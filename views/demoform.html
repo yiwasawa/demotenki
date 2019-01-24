@@ -220,7 +220,12 @@
       console.log("サンプル値を取得しました。")
       console.log(data);
       log = JSON.stringify(data);
+      $("#e").append('<p>' + data[0].accountname + '</p>');
+      $("#e").append('<p>' + data[0].address + '</p>');
+      $("#e").append('<p>' + data[0].qty + '</p>');
       $("#e").append('<p>' + log + '</p>');
+
+
 
     });
 
