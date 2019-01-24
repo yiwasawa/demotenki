@@ -60,9 +60,9 @@ print(address_3)
 print(qty_3)
 
 returndata = [
-    {"accountname":accountname_1), "address":address_1, "qty":qty_1},
-    {"accountname":accountname_2), "address":address_2, "qty":qty_2},
-    {"accountname":accountname_3), "address":address_3, "qty":qty_3}
+    {"accountname":accountname_1, "address":address_1, "qty":qty_1},
+    {"accountname":accountname_2, "address":address_2, "qty":qty_2},
+    {"accountname":accountname_3, "address":address_3, "qty":qty_3}
 ]
 
 print(returndata)
