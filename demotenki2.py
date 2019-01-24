@@ -157,6 +157,11 @@ def demopolly():
 def demoform():
     return template('demoform')
 
+# Polly
+@route('/polly')
+def polly():
+    return template('polly')
+
 # サンプル原稿取得
 @route('/getsamplescript')
 def getsamplescript():
