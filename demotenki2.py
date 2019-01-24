@@ -304,7 +304,7 @@ def mc_getaccountname():
 
     print(accountname)
 
-    return '[{"accountname":"' + accountname + '"}]'
+    return '{"accountname":"' + accountname + '"}'
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
