@@ -223,9 +223,22 @@
       $("#e").append('<p>' + data[0].accountname + '</p>');
       $("#e").append('<p>' + data[0].address + '</p>');
       $("#e").append('<p>' + data[0].qty + '</p>');
+
+
+
+      $("#e").append('<div class="siimple-table"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">口座名義</div><div class="siimple-table-cell">口座アドレス</div><div class="siimple-table-cell">残高</div></div></div><div class="siimple-table-body">');
+      $("#e").append('<div class="siimple-table-row"><div class="siimple-table-cell">' + data[0].accountname + '</div>');
+      $("#e").append('<div class="siimple-table-cell">' + data[0].address + '</div>');
+      $("#e").append('<div class="siimple-table-cell">' + data[0].qty + '</div></div>');
+      $("#e").append('<div class="siimple-table-row"><div class="siimple-table-cell">' + data[1].accountname + '</div>');
+      $("#e").append('<div class="siimple-table-cell">' + data[1].address + '</div>');
+      $("#e").append('<div class="siimple-table-cell">' + data[1].qty + '</div></div>');
+      $("#e").append('<div class="siimple-table-row"><div class="siimple-table-cell">' + data[2].accountname + '</div>');
+      $("#e").append('<div class="siimple-table-cell">' + data[2].address + '</div>');
+      $("#e").append('<div class="siimple-table-cell">' + data[2].qty + '</div></div>');
+      $("#e").append('</div></div>');
+
       $("#e").append('<p>' + log + '</p>');
-
-
 
     });
 
