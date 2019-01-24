@@ -22,3 +22,5 @@ for value in data_multi1.values():
 for key in data_multi1["result"]:
   print(key)
 
+data_multi2 = data_multi1["result"]
+print(data_multi2)
