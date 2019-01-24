@@ -13,8 +13,12 @@ response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers
 data_multi1 = response_multi1.json()
 print(data_multi1)
 
+print("その1")
 print(data_multi1["result"])
+print("その2")
 print(data_multi1["result"]["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"])
+print("その3")
+print(data_multi1["result"]["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"]["qty"])
 
 for key in data_multi1:
   print(key)
