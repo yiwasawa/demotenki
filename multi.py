@@ -23,8 +23,8 @@ for key in data_multi1["result"]:
   print(key)
 
 data_multi2 = data_multi1["result"]
-print(data_multi2)
 
-for i in data_multi1:
-    print(data_multi1["result"][i]["name"])
-    print(data_multi1["result"][i]["qty"])
+for key in data_multi2:
+  print(key)
+
+
