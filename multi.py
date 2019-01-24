@@ -2,13 +2,14 @@ import requests
 import json
 from password.password import *
 
+
+
 headers = {'apikey':MULTIAPIKEY}
-payload = {'method':'getaddressbalances','params':['1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s']}
+payload = {'method':'getmultibalances','params':['*','MKICoins']}
 response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
+# response_multi1はrequestsのオブジェクトで、requests.json()ということ。
+# pythonの辞書型にデコードされる。
 data_multi1 = response_multi1.json()
 print(data_multi1)
-
-qty = json.dumps(data_multi1["result"][0]["qty"])
-print(qty)
 
