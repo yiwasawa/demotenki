@@ -311,6 +311,25 @@ def mc_getaccountname():
 
     return '[{"accountname":"' + accountname + '"}]'
 
+
+
+
+
+# サンプル原稿取得
+@route('/mc_getmultibalances', method='GET')
+def getmultibalances():
+
+    headers = {'apikey':MULTIAPIKEY}
+    payload = {'method':'getmultibalances','params':['*','MKICoins']}
+    response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
+
+    # response_multi1はrequestsのオブジェクトで、requests.json()ということ。
+    # pythonの辞書型にデコードされる。
+    data_multi1 = response_multi1.json()
+    print(data_multi1)
+
+    return data_multi1
+
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
