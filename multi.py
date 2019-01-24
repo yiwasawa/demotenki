@@ -24,6 +24,8 @@ for key in data_multi1["result"]:
 
 data_multi2 = data_multi1["result"]
 
+data_multi2 = data_multi2.json()
+
 print(data_multi2[0]["name"])
 
 
