@@ -275,6 +275,33 @@ def getsamplescript():
 
     return '[{"fromaddress":"1TgN4QggTGgyN8hPcda5qQPA5t2kjj9zXpxMhA","toaddress":"1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s","currency":"' + CURRENCY + '", "qty":"10"}]'
 
+# 口座名称取得
+@route('/mc_getaccountname', method='POST')
+def mc_getaccountname():
+
+    try:
+        body = json.load(request.body)
+    except:
+        raise ValueError
+    
+    address = body["address"]
+
+    headers = {'apikey':MULTIAPIKEY}
+    payload = {'method':'liststreamkeyitems','params':['accountname',address]}
+    response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
+
+    data_multi1 = response_multi1.json()
+
+    print(data_multi1)
+
+    # qty = json.dumps(data_multi1["result"][0]["qty"])
+    # result = {"qty":qty}
+    # return json.dumps(result)
+    return data_multi1
+
+
+
+
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)

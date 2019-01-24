@@ -85,6 +85,25 @@
     <div id="c">
     </div>
 
+    <div class="siimple-h4">口座名称取得</div>
+    <p class="siimple-p">
+      アドレスをキーに、ストリームから口座名称を取得します。
+    </p>
+
+    <div class="siimple-form">
+      <div class="siimple-form-field">
+        <div class="siimple-form-field-label">口座アドレス</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="bc_getaddressfield">
+      </div>
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="bc_getaddressbutton">送信</div>
+      </div>
+    </div> 
+
+    <div id="d">
+    </div>
+
+
   </div>
 </body>
 
@@ -208,6 +227,30 @@
       log = JSON.stringify(data);
       $("#c").append('<p>' + log + '</p>');
 
+    });
+  });
+
+  //ブロックチェーン3
+  //送信ボタン
+  $("#bc_getaddressbutton").on("click", function(){
+
+  //送信データを準備
+  var sendData = {};
+  sendData.address = $("#bc_getaddressfield").val();
+  console.log(sendData);
+
+  $.ajax({
+    crossDomain: true,
+    url: "http://13.113.245.130/mc_getaccountname",
+    method: "POST",
+    data: JSON.stringify(sendData),
+    contentType: 'application/json',
+    dataType: "json"
+  })
+  .done(function(data){
+    console.log(data);
+    log = JSON.stringify(data);
+    $("#d").append('<p>' + log + '</p>');
     });
   });
 
