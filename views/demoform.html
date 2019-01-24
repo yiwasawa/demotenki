@@ -84,6 +84,21 @@
     <div id="d">
     </div>
 
+    <div class="siimple-h4">口座残高取得（テスト用）</div>
+    <p class="siimple-p">
+      口座残高を取得します。
+    </p>
+
+    <div class="siimple-form">
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="bc_getmultibalances">取得</div>
+      </div>
+    </div> 
+
+    <div id="e">
+    </div>
+
+
 
   </div>
 </body>
@@ -191,6 +206,25 @@
     });
   });
 
+  //ブロックチェーン4
+  //サンプル値取得ボタン
+  $("#bc_getmultibalances").on("click", function(){
+    console.log("サンプル値を取得します。")
+    $.ajax({
+      crossDomain: true,
+      url: "http://13.113.245.130/mc_getmultibalances",
+      method: "GET",
+      dataType: "json"
+    })
+    .done(function(data){
+      console.log("サンプル値を取得しました。")
+      console.log(data);
+      log = JSON.stringify(data);
+      $("#e").append('<p>' + log + '</p>');
+
+    });
+
+  });
 
 
 

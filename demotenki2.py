@@ -379,7 +379,6 @@ def getmultibalances():
 
     print(returndata)
 
-
     return json.dumps(returndata)
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
