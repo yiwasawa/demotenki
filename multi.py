@@ -3,17 +3,13 @@ import json
 from password.password import *
 import binascii
 
+# スタブ
 headers = {'apikey':MULTIAPIKEY}
-
-# ※注意※これはスタブプログラムです。
 
 payload = {'method':'getmultibalances','params':['*','MKICoins']}
 response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
-# response_multi1はrequestsのオブジェクトで、requests.json()ということ。
-# pythonの辞書型にデコードされる。
 data_multi1 = response_multi1.json()
-#print(data_multi1)
 
 payload = {'method':'liststreamkeyitems','params':['accountname','1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s']}
 response_multi2 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
