@@ -24,7 +24,6 @@ for key in data_multi1["result"]:
 
 data_multi2 = data_multi1["result"]
 
-print(data_multi2["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"]["name"])
-print(data_multi2["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"]["qty"])
+print(data_multi2[0]["name"])
 
 
