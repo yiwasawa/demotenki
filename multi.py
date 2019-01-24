@@ -34,7 +34,7 @@ data = data_multi2["result"][0]["data"]
 accountname = binascii.unhexlify(data).decode('utf-8')
 
 accountname_2 = accountname
-address_2 = "1TgN4QggTGgyN8hPcda5qQPA5t2kjj9zXpxMhA")
+address_2 = "1TgN4QggTGgyN8hPcda5qQPA5t2kjj9zXpxMhA"
 qty_2 = data_multi1["result"]["1TgN4QggTGgyN8hPcda5qQPA5t2kjj9zXpxMhA"][0]["qty"]
 
 # 3件目
