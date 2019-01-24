@@ -18,7 +18,7 @@ print(data_multi1["result"])
 print("その2")
 print(data_multi1["result"]["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"])
 print("その3")
-print(data_multi1["result"]["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"]["qty"])
+print(data_multi1["result"]["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"][0]["qty"])
 
 for key in data_multi1:
   print(key)
