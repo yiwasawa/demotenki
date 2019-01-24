@@ -13,6 +13,9 @@ response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers
 data_multi1 = response_multi1.json()
 print(data_multi1)
 
+print(data_multi1["result"])
+print(data_multi1["result"]["1PN6wchQ348Rn8rW5qgbgQZAytZeSuuF8oyT3s"])
+
 for key in data_multi1:
   print(key)
 
@@ -21,11 +24,5 @@ for value in data_multi1.values():
 
 for key in data_multi1["result"]:
   print(key)
-
-data_multi2 = data_multi1["result"]
-
-data_multi2 = data_multi2.json()
-
-print(data_multi2[0]["name"])
 
 
