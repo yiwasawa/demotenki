@@ -21,25 +21,6 @@
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
-    <div class="siimple-h3">Amazon Polly API</div>
-
-    <p class="siimple-p">
-      Amazon Polly APIを使って、入力した原稿をmp3化します。サンプル値取得を押すと、最新の南さいたまの気温と湿度を取得できます。
-    </p>
-
-    <div class="siimple-form">
-      <div class="siimple-form-field">
-        <label class="siimple-label">原稿</label><br>
-        <textarea class="siimple-textarea siimple-textarea--fluid" id="scriptfield" rows="5"></textarea>
-      </div>
-      <div class="siimple-form-field">
-        <div class="siimple-btn siimple-btn--blue" id="getsamplebutton">サンプル取得</div>
-        <div class="siimple-btn siimple-btn--blue" id="sendbutton">送信</div>
-      </div>
-    </div>
-
-    <div id="a">
-    </div>
 
     <div class="siimple-h3">ブロックチェーン（工事中）</div>
     <div class="siimple-h4">残高照会</div>
@@ -109,22 +90,7 @@
 
 <script type="text/javascript">
 
-  //サンプル値取得ボタン
-  $("#getsamplebutton").on("click", function(){
-    console.log("サンプル値を取得します。")
-    $.ajax({
-      crossDomain: true,
-      url: "http://13.113.245.130/getsamplescript",
-      method: "GET",
-      dataType: "json"
-    })
-    .done(function(data){
-      console.log("サンプル値を取得しました。")
-      console.log(data);
-      console.log(data[0].script);
-      $("#scriptfield").val(data[0].script);
-    });
-  });
+
 
   //サンプル値取得ボタン
   $("#bc_getsamplebutton").on("click", function(){
@@ -145,37 +111,8 @@
 
     });
 
-
-
-
-
-
   });
 
-  //送信ボタン
-  $("#sendbutton").on("click", function(){
-
-    //送信データを準備
-    var sendScript = {};
-    sendScript.script = $("#scriptfield").val();
-    console.log(sendScript);
-
-    $.ajax({
-      crossDomain: true,
-      url: "http://13.113.245.130/postscript",
-      method: "POST",
-      data: JSON.stringify(sendScript),
-      contentType: 'application/json',
-      dataType: "json"
-    })
-    .done(function(data){
-      console.log(data);
-      console.log(data.filepath);
-
-      $("#a").append('<audio controls><source src="' + data.filepath + '" type="audio/mp3"></audio>');
-
-    });
-  });
 
   //ブロックチェーン1
   //送信ボタン
