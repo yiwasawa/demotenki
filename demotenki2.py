@@ -195,7 +195,7 @@ def postscript():
     polly = session.client("polly")
     filename = "/home/ec2-user/demotenki/static/polly/" + nowtime + ".mp3"
 
-    response = polly.synthesize_speech(Text=script, OutputFormat="mp3", VoiceId="Mizuki")
+    response = polly.synthesize_speech(Text=script, OutputFormat="mp3", VoiceId="Takumi")
     if "AudioStream" in response:
       with closing(response["AudioStream"]) as stream:
         output = filename
