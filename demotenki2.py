@@ -187,7 +187,7 @@ def postscript():
     script = body["script"]
     ssml = body["ssml"]
 
-    if ssml == "ssml":
+    if ssml == "true":
         tt = "ssml"
     else:
         tt = "text"
