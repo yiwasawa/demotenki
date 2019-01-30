@@ -185,6 +185,12 @@ def postscript():
         raise ValueError
     
     script = body["script"]
+    ssml = body["ssml"]
+
+    if ssml = "ssml":
+        tt = "ssml"
+    else:
+        tt = "text"
 
     # 現在時刻の取得
     nowtime = datetime.datetime.now()
@@ -195,7 +201,7 @@ def postscript():
     polly = session.client("polly")
     filename = "/home/ec2-user/demotenki/static/polly/" + nowtime + ".mp3"
 
-    response = polly.synthesize_speech(Text=script, TextType="ssml", OutputFormat="mp3", VoiceId="Takumi")
+    response = polly.synthesize_speech(Text=script, TextType=tt, OutputFormat="mp3", VoiceId="Takumi")
     if "AudioStream" in response:
       with closing(response["AudioStream"]) as stream:
         output = filename

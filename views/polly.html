@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.0/dist/siimple.min.css">
 
 <style>
     body {
@@ -32,8 +32,17 @@
         <label class="siimple-label">原稿</label><br>
         <textarea class="siimple-textarea siimple-textarea--fluid" id="scriptfield" rows="5"></textarea>
       </div>
+
+      <div class="siimple-form-field"></div>
+        <label class="siimple-label">SSML利用</label><br>
+        <div class="siimple-switch">
+            <input type="checkbox" id="ssmlSwitch">
+            <label for="ssmlSwitch"></label>
+        </div>
+      </div>
+
       <div class="siimple-form-field">
-        <div class="siimple-btn siimple-btn--blue" id="getsamplebutton">サンプル取得</div>
+        <div class="siimple-btn siimple-btn--blue" id="getsamplebutton">サンプル値取得</div>
         <div class="siimple-btn siimple-btn--blue" id="sendbutton">送信</div>
       </div>
     </div>
@@ -48,7 +57,15 @@
 
   //サンプル値取得ボタン
   $("#getsamplebutton").on("click", function(){
-    console.log("サンプル値を取得します。")
+    console.log("サンプル値を取得します。");
+    
+    //テスト目的
+    if($("#ssmlSwitch").prop("checked")){
+      console.log("SSML");
+    }else{
+      console.log("NO SSML");
+    }
+
     $.ajax({
       crossDomain: true,
       url: "http://13.113.245.130/getsamplescript",
@@ -70,6 +87,14 @@
     var sendScript = {};
     sendScript.script = $("#scriptfield").val();
     console.log(sendScript);
+
+    if($("#ssmlSwitch").prop("checked")){
+      sendScript.ssml = "true";
+      console.log("SSML");
+    }else{
+      sendScript.ssml = "false";
+      console.log("NO SSML");
+    }    
 
     $.ajax({
       crossDomain: true,
