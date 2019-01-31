@@ -73,6 +73,12 @@
       console.log("サンプル値を取得しました。")
       console.log(data);
       console.log(data[0].script);
+
+    //テスト目的
+    if($("#ssmlSwitch").prop("checked")){
+      data[0].script = "<speak>" + data[0].script + "</speak>";
+    }
+
       $("#scriptfield").val(data[0].script);
     });
   });
