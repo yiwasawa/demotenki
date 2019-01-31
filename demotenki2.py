@@ -176,6 +176,24 @@ def getsamplescript():
 
     return '[{"type":"message", "text":"text", "script":"' + script + '"}]'
 
+# サンプル原稿取得JSON
+@route('/getsamplescriptjson')
+def getsamplescriptjson():
+
+    cnxn4 = pyodbc.connect(DB_CONNECT_02)
+    cursor4 = cnxn4.cursor()
+    sql4 = "SELECT TOP 1 * FROM dbo.TenkiDemo ORDER BY NICHIJI DESC"
+    cursor4.execute(sql4)
+    row4 = cursor4.fetchone()
+
+    script = "最新の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
+
+    modori = '[{"type":"message", "text":"' + script + '"}]'
+
+    jsonmodori = JSON.parse(modori)
+
+    return jsonmodori
+
 @route('/postscript', method='POST')
 def postscript():
 
