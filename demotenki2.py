@@ -190,7 +190,7 @@ def getsamplescriptjson():
 
 
 
-    body = '[{"type":"message", "text":"text"}]'
+    body = '{"type":"message", "text":"text"}'
     r = HTTPResponse(status=200, body=body)
     r.set_header("Content-Type", "application/json")
     return r
