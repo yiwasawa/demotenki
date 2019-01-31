@@ -188,11 +188,33 @@ def getsamplescriptjson():
 
     script = "最新の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
 
-    modori = '{"type":"message", "text":"' + script + '"}'
 
-    # jsonmodori = json.loads(modori)
 
-    return json.dumps(modori)
+    body = '[{"type":"message", "text":"text"}]'
+    r = HTTPResponse(status=200, body=body)
+    r.set_header("Content-Type", "application/json")
+    return r
+
+
+
+
+
+
+    return '[{}]'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @route('/postscript', method='POST')
 def postscript():
