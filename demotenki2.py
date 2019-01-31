@@ -190,9 +190,9 @@ def getsamplescriptjson():
 
     modori = '[{"type":"message", "text":"' + script + '"}]'
 
-    jsonmodori = json.loads(modori)
+    # jsonmodori = json.loads(modori)
 
-    return jsonmodori
+    return dict(modori)
 
 @route('/postscript', method='POST')
 def postscript():
