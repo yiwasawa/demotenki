@@ -190,7 +190,7 @@ def getsamplescriptjson():
 
     modori = '[{"type":"message", "text":"' + script + '"}]'
 
-    jsonmodori = JSON.parse(modori)
+    jsonmodori = json.loads(modori)
 
     return jsonmodori
 
