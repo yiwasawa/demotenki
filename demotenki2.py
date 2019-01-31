@@ -174,7 +174,7 @@ def getsamplescript():
 
     script = "最新の南さいたまの気温は" + str(row4[1]) + "度、湿度は" + str(row4[2]) + "％くらいです。"
 
-    return '[{"script":"' + script + '"}]'
+    return '[{"type":"message", "text":"text", script":"' + script + '"}]'
 
 @route('/postscript', method='POST')
 def postscript():
