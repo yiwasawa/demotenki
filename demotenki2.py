@@ -177,7 +177,7 @@ def getsamplescript():
     return '[{"type":"message", "text":"text", "script":"' + script + '"}]'
 
 # サンプル原稿取得JSON
-@route('/getsamplescriptjson')
+@route('/getsamplescriptjson', method='POST')
 def getsamplescriptjson():
 
     cnxn4 = pyodbc.connect(DB_CONNECT_02)
