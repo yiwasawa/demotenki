@@ -177,6 +177,7 @@ def getsamplescript():
     return '[{"type":"message", "text":"text", "script":"' + script + '"}]'
 
 # サンプル原稿取得JSON
+# 追加
 @route('/getsamplescriptjson', method='POST')
 def getsamplescriptjson():
 
