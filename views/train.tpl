@@ -1,6 +1,7 @@
 <!-- Import siimple -->
 <!-- <link rel="stylesheet" href="../dist/siimple.css"> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.css">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.css"> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.0/dist/siimple.min.css">
 
 <!-- styles -->
 <style>
