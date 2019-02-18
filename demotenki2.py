@@ -238,10 +238,10 @@ def postscript():
     nowtime = nowtime.strftime("%Y%m%d%H%M%S")
 
     session = Session(region_name="ap-northeast-1")
-    polly = session.client("polly")
+    client = session.client("polly")
     filename = "/home/ec2-user/demotenki/static/polly/" + nowtime + ".mp3"
 
-    response = polly.synthesize_speech(Text=script, TextType=tt, OutputFormat="mp3", VoiceId="Takumi")
+    response = client.synthesize_speech(Text=script, TextType=tt, OutputFormat="mp3", VoiceId="Takumi")
     if "AudioStream" in response:
       with closing(response["AudioStream"]) as stream:
         output = filename
