@@ -195,25 +195,7 @@ def getsamplescriptjson():
     r.set_header("Content-Type", "application/json")
     return r
 
-
-
-
-
-
     return '[{}]'
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @route('/postscript', method='POST')
