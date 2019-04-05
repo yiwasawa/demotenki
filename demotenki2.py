@@ -417,9 +417,13 @@ def sc_get():
     payload = {'method':'liststreamkeyitems','params':['demo', '1904050001', False]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
+
     data_sc1 = response_sc1.json()
 
+    print(response_sc1)
+    print(type(response_sc1))
     print(data_sc1)
+    print(type(data_sc1))
 
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
