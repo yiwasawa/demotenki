@@ -430,7 +430,7 @@ def sc_get():
     for i, v in enumerate(data_sc1['result']):
         # print(i, v)
         print(data_sc1['result'][i]['data'])
-        status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
+        status = status + binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
         print(status)
         print(data_sc1['result'][i]['blocktime'])
 
