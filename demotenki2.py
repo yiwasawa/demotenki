@@ -425,7 +425,15 @@ def sc_get():
     print(type(data_sc1)) #dict型
     
     print(data_sc1['result'][0]['data'])
-    print(data_sc1['result'][0]['blocktime'])    
+    print(data_sc1['result'][0]['blocktime'])
+
+    for i, v in enumerate(data_sc1):
+        print(i, v)
+
+    for i, (k, v) in enumerate(data_sc1.items()):
+        print(i, k, v)
+    
+     
 
     list = data_sc1.keys()
     print(list)
