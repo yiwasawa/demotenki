@@ -428,7 +428,6 @@ def sc_get():
     print(list)
     # dict_keys(['result', 'error', 'id'])
 
-    value = {}
     value = data_sc1['result']
     print(value)
     print(type(value)) # <class 'list'>
@@ -438,7 +437,9 @@ def sc_get():
     for item in value:
         print(item)
 
-
+    data_value = value.json()
+    print(data_value)
+    print(type(data_value))
 
     # for k, v in value.items():
     #     print (k, v)
