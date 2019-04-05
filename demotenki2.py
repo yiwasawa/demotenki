@@ -428,6 +428,7 @@ def sc_get():
     print(list)
     # dict_keys(['result', 'error', 'id'])
 
+    value = {}
     value = data_sc1['result']
     print(value)
     print(type(value)) # <class 'list'>
