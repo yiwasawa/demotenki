@@ -431,14 +431,13 @@ def sc_get():
     value = data_sc1['result']
     print(value)
 
-
-
+    text = json.dumps(value)
+    
 
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
     # return json.dumps(result)
-    return value
-
+    return text
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
