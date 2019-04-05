@@ -430,9 +430,14 @@ def sc_get():
 
     value = data_sc1['result']
     print(value)
-    print(type(value))
+    print(type(value)) # <class 'list'>
 
     text = json.dumps(value)
+
+    for item in value:
+        print(item)
+
+
 
     # for k, v in value.items():
     #     print (k, v)
