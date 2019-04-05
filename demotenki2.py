@@ -432,8 +432,10 @@ def sc_get():
     print(value)
 
     text = json.dumps(value)
-    
 
+    for k, v in value.items():
+        print (k, v)
+    
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
     # return json.dumps(result)
