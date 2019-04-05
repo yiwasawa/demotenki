@@ -427,6 +427,8 @@ def sc_get():
     print(data_sc1['result'][0]['data'])
     print(data_sc1['result'][0]['blocktime'])
 
+    outputtext = ''
+
     for i, v in enumerate(data_sc1['result']):
         # print(i, v)
         print(data_sc1['result'][i]['data'])
