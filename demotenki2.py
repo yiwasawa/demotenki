@@ -425,7 +425,7 @@ def sc_get():
     print(type(data_sc1)) #dict型
 
     list = data_sc1.keys()
-    print list
+    print(list)
 
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
