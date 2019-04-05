@@ -427,13 +427,13 @@ def sc_get():
     print(data_sc1['result'][0]['data'])
     print(data_sc1['result'][0]['blocktime'])
 
-    for i, v in enumerate(data_sc1):
+    for i, v in enumerate(data_sc1['result']):
         print(i, v)
 
-    for i, (k, v) in enumerate(data_sc1.items()):
+    for i, (k, v) in enumerate(data_sc1['result'].items()):
         print(i, k, v)
-    
-     
+
+
 
     list = data_sc1.keys()
     print(list)
