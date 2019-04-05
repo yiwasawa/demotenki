@@ -414,7 +414,7 @@ def getmultibalances():
 def sc_get():
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'liststreamkeyitems','params':['demo', '1904050001', false]}
+    payload = {'method':'liststreamkeyitems','params':['demo', '1904050001', False]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     data_sc1 = response_sc1.json()
