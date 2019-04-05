@@ -430,8 +430,9 @@ def sc_get():
     for i, v in enumerate(data_sc1['result']):
         # print(i, v)
         print(data_sc1['result'][i]['data'])
-        status = status + binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
-        print(status)
+        status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
+        outputtext += status
+        print(outputtext)
         print(data_sc1['result'][i]['blocktime'])
 
 
@@ -449,7 +450,7 @@ def sc_get():
     print(type(value)) # <class 'list'>
 
     text = json.dumps(value)
-    text = status
+    text = outputtext
 
     for item in value:
         print(item)
