@@ -432,8 +432,8 @@ data_sc1['result'][]
     print(list)
     # dict_keys(['result', 'error', 'id'])
 
-    value = data_sc1['result'][0]['data']
-    
+    value = json.dumps(data_sc1['result'][0]['data'])
+
     print(value)
     print(type(value)) # <class 'list'>
 
