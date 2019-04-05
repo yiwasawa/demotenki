@@ -449,6 +449,7 @@ def sc_get():
     print(type(value)) # <class 'list'>
 
     text = json.dumps(value)
+    text = status
 
     for item in value:
         print(item)
