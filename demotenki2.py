@@ -433,7 +433,7 @@ def sc_get():
         # print(i, v)
         print(data_sc1['result'][i]['data'])
         status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
-        outputtext += data_sc1['result'][i]['blocktime']
+        outputtext += str(data_sc1['result'][i]['blocktime'])
         outputtext += ' '
         outputtext += status
         outputtext += '\n'
