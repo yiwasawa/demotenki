@@ -430,8 +430,8 @@ def sc_get():
     for i, v in enumerate(data_sc1['result']):
         print(i, v)
 
-    for i, (k, v) in enumerate(data_sc1['result'].items()):
-        print(i, k, v)
+    # for i, (k, v) in enumerate(data_sc1['result'].items()):
+    #     print(i, k, v)
 
 
 
