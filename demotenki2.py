@@ -426,6 +426,13 @@ def sc_get():
 
     list = data_sc1.keys()
     print(list)
+    # dict_keys(['result', 'error', 'id'])
+
+    value = data_sc1['result']
+    print(value)
+    
+
+
 
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
