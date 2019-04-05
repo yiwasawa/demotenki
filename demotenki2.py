@@ -424,11 +424,16 @@ def sc_get():
     print(data_sc1)
     print(type(data_sc1)) #dict型
 
+
+data_sc1['result'][]
+
+
     list = data_sc1.keys()
     print(list)
     # dict_keys(['result', 'error', 'id'])
 
-    value = data_sc1['result']
+    value = data_sc1['result'][0]['data']
+    
     print(value)
     print(type(value)) # <class 'list'>
 
@@ -437,9 +442,6 @@ def sc_get():
     for item in value:
         print(item)
 
-    data_value = value.json()
-    print(data_value)
-    print(type(data_value))
 
     # for k, v in value.items():
     #     print (k, v)
