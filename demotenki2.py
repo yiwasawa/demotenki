@@ -417,80 +417,67 @@ def sc_get():
     payload = {'method':'liststreamkeyitems','params':['demo','1904050001',False]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
-
     dict_sc1 = response_sc1.json()
 
-    # print(type(response_sc1)) #requests.models.Response型
-    # print(type(data_sc1)) #dict型
-    
-#    print(data_sc1['result'][0]['data'])
-#    print(data_sc1['result'][0]['blocktime'])
-
-    # outputtext = ''
-
-    # JSONで返すための辞書オブジェクト
     dict_save = {}
     list_saveline = []
 
     for i, v in enumerate(dict_sc1['result']):
-        # print(i, v)
 
-        # ステータス
-        # print(data_sc1['result'][i]['data'])
-
-        # 16進数→文字列の変換
+        # 16進数からUTF-8に変換
         str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
 
+        # UNIXタイムスタンプを抽出し、日本時間化＆書式変換
         int_timestamp = int(dict_sc1['result'][i]['blocktime'])
         datetime_timestamp = datetime.datetime.fromtimestamp(int_timestamp)
         datetime_timestamp = datetime_timestamp + datetime.timedelta(hours=9)
         str_timestamp = datetime_timestamp.strftime("%Y/%m/%d %H:%M:%S")
 
-#        outputtext += cstamp
-#        outputtext += ' '
-#        outputtext += status
-#        outputtext += '\n'
-#        print(outputtext)
-#        print(data_sc1['result'][i]['blocktime'])
-
+        # 注文番号、タイムスタンプ、ステータスを配列に格納
         list_saveline.append({"ordernumber":"1904050001","timestamp":str_timestamp,"status":str_status})
 
-        # save = {"blockchainitems":[saveline]}
-            # "ordernumber" : "1904050001",
-            # "timestamp" : cstamp,
-            # "status" : status
-
-    # for i, (k, v) in enumerate(data_sc1['result'].items()):
-    #     print(i, k, v)
-
-    # print(save)
-
-    # print(saveline)
-
+    # 返却用の辞書型に格納
     dict_save = {"blockchainitems":list_saveline}
 
-    # list = data_sc1.keys()
-    # print(list)
-    # dict_keys(['result', 'error', 'id'])
-
-    # value = data_sc1['result']
-    # print(value)
-    # print(type(value)) # <class 'list'>
-
-    # text = json.dumps(value)
-    # text = outputtext
-
-    # for item in value:
-    #     print(item)
-
-
-    # for k, v in value.items():
-    #     print (k, v)
-    
-    # qty = json.dumps(data_multi1["result"][0]["qty"])
-    # result = {"qty":qty}
-    # return json.dumps(result)
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
+
+
+@route('/sc_listitems')
+def sc_listitems():
+
+    headers = {'apikey':MULTIAPIKEY}
+    payload = {'method':'liststreamitems','params':['demo']}
+    response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
+
+    dict_sc1 = response_sc1.json()
+
+    dict_save = {}
+    list_saveline = []
+
+    for i, v in enumerate(dict_sc1['result']):
+
+        # 注文番号
+        str_ordernumber = dict_sc1['result'][i]['key']
+
+        # 16進数からUTF-8に変換
+        str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
+
+        # UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+        int_timestamp = int(dict_sc1['result'][i]['blocktime'])
+        datetime_timestamp = datetime.datetime.fromtimestamp(int_timestamp)
+        datetime_timestamp = datetime_timestamp + datetime.timedelta(hours=9)
+        str_timestamp = datetime_timestamp.strftime("%Y/%m/%d %H:%M:%S")
+
+        # 注文番号、タイムスタンプ、ステータスを配列に格納
+        list_saveline.append({"ordernumber":str_ordernumber,"timestamp":str_timestamp,"status":str_status})
+
+    # 返却用の辞書型に格納
+    dict_save = {"blockchainitems":list_saveline}
+
+    return json.dumps(dict_save, ensure_ascii=False, indent=4)
+
+
+
 
 
 # bottleのデモWebサーバー
