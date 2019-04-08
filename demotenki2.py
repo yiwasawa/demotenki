@@ -423,7 +423,6 @@ def sc_get():
     list_saveline = []
 
     for i, v in enumerate(dict_sc1['result']):
-
         # 16進数からUTF-8に変換
         str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
 
@@ -446,7 +445,7 @@ def sc_get():
 def sc_listitems():
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'liststreamitems','params':['demo']}
+    payload = {'method':'liststreamitems','params':['demo',false,999]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
@@ -455,18 +454,17 @@ def sc_listitems():
     list_saveline = []
 
     for i, v in enumerate(dict_sc1['result']):
-
         # 注文番号
         str_ordernumber = dict_sc1['result'][i]['key']
 
-        # 16進数からUTF-8に変換
-        str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
-
-        # UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
         int_timestamp = int(dict_sc1['result'][i]['blocktime'])
         datetime_timestamp = datetime.datetime.fromtimestamp(int_timestamp)
         datetime_timestamp = datetime_timestamp + datetime.timedelta(hours=9)
         str_timestamp = datetime_timestamp.strftime("%Y/%m/%d %H:%M:%S")
+
+        # ステータス：16進数からUTF-8に変換
+        str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
 
         # 注文番号、タイムスタンプ、ステータスを配列に格納
         list_saveline.append({"ordernumber":str_ordernumber,"timestamp":str_timestamp,"status":str_status})
