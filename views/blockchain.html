@@ -22,34 +22,26 @@
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
 
-    <div class="siimple-h3">ブロックチェーン</div>
-
-
-
-
-
-    <div class="siimple-h4">注文のステータス登録</div>
+    <div class="siimple-h3">注文ステータス登録</div>
     <p class="siimple-p">
-      注文のステータスを更新します。
+      注文のステータスを登録します。
     </p>
   
     <div class="siimple-form">
       <div class="siimple-form-field">
-        <div class="siimple-form-field-label">注文番号(Key)</div>
+        <div class="siimple-form-field-label">注文番号（YYMMDD+4桁）</div>
         <input type="text" class="siimple-input siimple-input--fluid" id="sc_ordernumber">
-        <div class="siimple-form-field-label">ステータス(Value)</div>
-        <input type="text" class="siimple-input siimple-input--fluid" id="sc_status_dummy">
 
-
-        <label class="siimple-label">ステータス(Value):</label>
+        <div class="siimple-form-field-label">ステータス</div>
         <select class="siimple-select" id="sc_status">
             <option value="312ee6b3a8e69687">1.注文</option>
             <option value="322ee6b3a8e69687e58f97e4bb98e6b888">2.注文受付済</option>
             <option value="332ee7b584e7ab8be6898be9858de4b8ad">3.組立手配中</option>
+            <option value="342ee7b584e7ab8be4b8ad">4.組立中</option>
+            <option value="352ee9858de98081e6898be9858de4b8ad">5.配送手配中</option>
+            <option value="362ee9858de98081e4b8ad">6.配送中</option>
+            <option value="372ee9858de98081e5ae8ce4ba86">7.配送完了</option>
         </select>
-
-
-
 
       </div>
       <div class="siimple-form-field">
