@@ -492,7 +492,7 @@ def sc_get():
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
     # return json.dumps(result)
-    return json.dumps(save)
+    return json.dumps(save, ensure_ascii=False, indent=4,)
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
