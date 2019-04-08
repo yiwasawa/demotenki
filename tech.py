@@ -20,6 +20,8 @@ print("test")
 
 wk_time = 1554432807
 
+wk_time = wk_time + datetime.timedelta(hours=9)
+
 print(wk_time)
 
 conv_time = datetime.datetime.fromtimestamp(wk_time).strftime("%Y/%m/%d %H:%M:%S")
