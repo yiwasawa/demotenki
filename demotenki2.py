@@ -455,7 +455,7 @@ def sc_get():
         print(outputtext)
         print(data_sc1['result'][i]['blocktime'])
 
-        saveline.append = {"ordernumber":"1904050001","timestamp":cstamp,"status":status}
+        saveline.append({"ordernumber":"1904050001","timestamp":cstamp,"status":status})
 
         # save = {"blockchainitems":[saveline]}
             # "ordernumber" : "1904050001",
