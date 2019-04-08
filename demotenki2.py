@@ -445,7 +445,7 @@ def sc_get():
 def sc_listitems():
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'liststreamitems','params':['demo',false,999]}
+    payload = {'method':'liststreamitems','params':['demo',False,999]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
