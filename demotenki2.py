@@ -157,6 +157,12 @@ def demopolly():
 def demoform():
     return template('demoform')
 
+# Blockchain
+@route('/blockchain')
+def blockchain():
+    return template('blockchain')
+
+
 # Polly
 @route('/polly')
 def polly():
@@ -475,7 +481,30 @@ def sc_listitems():
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 
+@route('/sc_updatestatus', method='POST')
+def sc_updatestatus():
 
+    try:
+        body = json.load(request.body)
+    except:
+        raise ValueError
+    
+    str_stream = "demo"
+    str_ordernumber = body["ordernumber"]
+    str_status = body["status"]
+
+    headers = {'apikey':MULTIAPIKEY}
+    payload = {'method':'publish','params':[str_stream, str_ordernumber, str_status]}
+    response_multi1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
+
+    data_multi1 = response_multi1.json()
+
+    print(data_multi1)
+
+    # qty = json.dumps(data_multi1["result"][0]["qty"])
+    # result = {"qty":qty}
+    # return json.dumps(result)
+    return data_multi1
 
 
 # bottleのデモWebサーバー
