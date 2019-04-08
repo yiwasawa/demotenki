@@ -417,32 +417,31 @@ def sc_get():
     payload = {'method':'liststreamkeyitems','params':['demo','1904050001',False]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
-    data_sc1 = response_sc1.json()
 
-    print(response_sc1)
-    print(type(response_sc1))
-    print(data_sc1)
-    print(type(data_sc1)) #dict型
+    dict_sc1 = response_sc1.json()
+
+    # print(type(response_sc1)) #requests.models.Response型
+    # print(type(data_sc1)) #dict型
     
 #    print(data_sc1['result'][0]['data'])
 #    print(data_sc1['result'][0]['blocktime'])
 
-    outputtext = ''
+    # outputtext = ''
 
     # JSONで返すための辞書オブジェクト
-    save = {}
-    saveline = []
+    dict_save = {}
+    list_saveline = []
 
-    for i, v in enumerate(data_sc1['result']):
+    for i, v in enumerate(dict_sc1['result']):
         # print(i, v)
 
         # ステータス
         # print(data_sc1['result'][i]['data'])
 
         # 16進数→文字列の変換
-        str_status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
+        str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
 
-        int_timestamp = int(data_sc1['result'][i]['blocktime'])
+        int_timestamp = int(dict_sc1['result'][i]['blocktime'])
         datetime_timestamp = datetime.datetime.fromtimestamp(int_timestamp)
         datetime_timestamp = datetime_timestamp + datetime.timedelta(hours=9)
         str_timestamp = datetime_timestamp.strftime("%Y/%m/%d %H:%M:%S")
@@ -454,7 +453,7 @@ def sc_get():
 #        print(outputtext)
 #        print(data_sc1['result'][i]['blocktime'])
 
-        saveline.append({"ordernumber":"1904050001","timestamp":str_timestamp,"status":str_status})
+        list_saveline.append({"ordernumber":"1904050001","timestamp":str_timestamp,"status":str_status})
 
         # save = {"blockchainitems":[saveline]}
             # "ordernumber" : "1904050001",
@@ -468,7 +467,7 @@ def sc_get():
 
     # print(saveline)
 
-    save = {"blockchainitems":saveline}
+    dict_save = {"blockchainitems":list_saveline}
 
     # list = data_sc1.keys()
     # print(list)
@@ -491,7 +490,7 @@ def sc_get():
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
     # return json.dumps(result)
-    return json.dumps(save, ensure_ascii=False, indent=4)
+    return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 
 # bottleのデモWebサーバー
