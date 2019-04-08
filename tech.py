@@ -24,6 +24,6 @@ wk_time = wk_time + datetime.timedelta(hours=9)
 
 print(wk_time)
 
-conv_time = datetime.datetime.fromtimestamp(wk_time).strftime("%Y/%m/%d %H:%M:%S")
+conv_time = wk_time.strftime("%Y/%m/%d %H:%M:%S")
 
 print(conv_time)
