@@ -29,7 +29,7 @@
   
     <div class="siimple-form">
       <div class="siimple-form-field">
-        <div class="siimple-form-field-label">注文番号（YYMMDD+4桁）</div>
+        <div class="siimple-form-field-label">注文番号（YYMMDD+任意の4桁）</div>
         <input type="text" class="siimple-input siimple-input--fluid" id="sc_ordernumber">
 
         <div class="siimple-form-field-label">ステータス</div>
@@ -71,7 +71,7 @@
 
     $.ajax({
       crossDomain: true,
-      url: "http://13.113.245.130/sc_updatestatus",
+      url: "https://13.113.245.130/sc_updatestatus",
       method: "POST",
       data: JSON.stringify(sendScript),
       contentType: 'application/json',
