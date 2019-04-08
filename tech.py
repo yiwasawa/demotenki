@@ -18,3 +18,10 @@ import binascii
 
 print("test")
 
+wk_time = "1554432807"
+
+print(wk_time)
+
+conv_time = wk_time.strftime("%Y%m%d%H%M%S")
+
+print(conv_time)
