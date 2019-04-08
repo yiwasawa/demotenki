@@ -18,7 +18,7 @@ import binascii
 
 print("test")
 
-wk_time = "1554432807"
+wk_time = 1554432807
 
 print(wk_time)
 
