@@ -455,7 +455,7 @@ def sc_get():
         print(data_sc1['result'][i]['blocktime'])
 
         save[i] = {
-            "ordernumber" : "",
+            "ordernumber" : "1904050001",
             "timestamp" : cstamp,
             "status" : status
         }
@@ -486,7 +486,7 @@ def sc_get():
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
     # return json.dumps(result)
-    return text
+    return json.dumps(save)
 
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
