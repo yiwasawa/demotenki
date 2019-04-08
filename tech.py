@@ -22,6 +22,6 @@ wk_time = 1554432807
 
 print(wk_time)
 
-conv_time = datetime.datetime.fromtimestamp(wk_time).strftime("%Y/%m/%d %H%:M%S")
+conv_time = datetime.datetime.fromtimestamp(wk_time).strftime("%Y/%m/%d %H:%M:%S")
 
 print(conv_time)

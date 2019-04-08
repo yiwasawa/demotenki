@@ -431,9 +431,16 @@ def sc_get():
 
     for i, v in enumerate(data_sc1['result']):
         # print(i, v)
+
+        # ステータス
         print(data_sc1['result'][i]['data'])
+
+        # デコード
         status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
-        outputtext += str(data_sc1['result'][i]['blocktime'])
+        tstamp = int(data_sc1['result'][i]['blocktime'])
+        cstamp = datetime.datetime.fromtimestamp(tstamp).strftime("%Y/%m/%d %H:%M:%S")
+
+        outputtext += cstamp
         outputtext += ' '
         outputtext += status
         outputtext += '\n'
