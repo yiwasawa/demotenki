@@ -437,8 +437,12 @@ def sc_get():
 
         # デコード
         status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
+
         tstamp = int(data_sc1['result'][i]['blocktime'])
-        cstamp = datetime.datetime.fromtimestamp(tstamp).strftime("%Y/%m/%d %H:%M:%S")
+        astamp = datetime.datetime.fromtimestamp(tstamp)
+        astamp = astamp + datetime.timedelta(hours=9)
+
+        cstamp = astamp.strftime("%Y/%m/%d %H:%M:%S")
 
         outputtext += cstamp
         outputtext += ' '
