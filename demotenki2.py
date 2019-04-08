@@ -414,7 +414,7 @@ def getmultibalances():
 def sc_get():
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'liststreamkeyitems','params':['demo', '1904050001', False]}
+    payload = {'method':'liststreamkeyitems','params':['demo','1904050001',False]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     data_sc1 = response_sc1.json()
@@ -424,8 +424,8 @@ def sc_get():
     print(data_sc1)
     print(type(data_sc1)) #dict型
     
-    print(data_sc1['result'][0]['data'])
-    print(data_sc1['result'][0]['blocktime'])
+#    print(data_sc1['result'][0]['data'])
+#    print(data_sc1['result'][0]['blocktime'])
 
     outputtext = ''
 
@@ -437,25 +437,24 @@ def sc_get():
         # print(i, v)
 
         # ステータス
-        print(data_sc1['result'][i]['data'])
+        # print(data_sc1['result'][i]['data'])
 
-        # デコード
-        status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
+        # 16進数→文字列の変換
+        str_status = binascii.unhexlify(data_sc1['result'][i]['data']).decode('utf-8')
 
-        tstamp = int(data_sc1['result'][i]['blocktime'])
-        astamp = datetime.datetime.fromtimestamp(tstamp)
-        astamp = astamp + datetime.timedelta(hours=9)
+        int_timestamp = int(data_sc1['result'][i]['blocktime'])
+        datetime_timestamp = datetime.datetime.fromtimestamp(int_timestamp)
+        datetime_timestamp = datetime_timestamp + datetime.timedelta(hours=9)
+        str_timestamp = datetime_timestamp.strftime("%Y/%m/%d %H:%M:%S")
 
-        cstamp = astamp.strftime("%Y/%m/%d %H:%M:%S")
+#        outputtext += cstamp
+#        outputtext += ' '
+#        outputtext += status
+#        outputtext += '\n'
+#        print(outputtext)
+#        print(data_sc1['result'][i]['blocktime'])
 
-        outputtext += cstamp
-        outputtext += ' '
-        outputtext += status
-        outputtext += '\n'
-        print(outputtext)
-        print(data_sc1['result'][i]['blocktime'])
-
-        saveline.append({"ordernumber":"1904050001","timestamp":cstamp,"status":status})
+        saveline.append({"ordernumber":"1904050001","timestamp":str_timestamp,"status":str_status})
 
         # save = {"blockchainitems":[saveline]}
             # "ordernumber" : "1904050001",
@@ -465,25 +464,25 @@ def sc_get():
     # for i, (k, v) in enumerate(data_sc1['result'].items()):
     #     print(i, k, v)
 
-    print(save)
+    # print(save)
 
-    print(saveline)
+    # print(saveline)
 
     save = {"blockchainitems":saveline}
 
-    list = data_sc1.keys()
-    print(list)
+    # list = data_sc1.keys()
+    # print(list)
     # dict_keys(['result', 'error', 'id'])
 
-    value = data_sc1['result']
-    print(value)
-    print(type(value)) # <class 'list'>
+    # value = data_sc1['result']
+    # print(value)
+    # print(type(value)) # <class 'list'>
 
-    text = json.dumps(value)
-    text = outputtext
+    # text = json.dumps(value)
+    # text = outputtext
 
-    for item in value:
-        print(item)
+    # for item in value:
+    #     print(item)
 
 
     # for k, v in value.items():
@@ -492,8 +491,10 @@ def sc_get():
     # qty = json.dumps(data_multi1["result"][0]["qty"])
     # result = {"qty":qty}
     # return json.dumps(result)
-    return json.dumps(save, ensure_ascii=False, indent=4,)
+    return json.dumps(save, ensure_ascii=False, indent=4)
 
+
+# bottleのデモWebサーバー
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
