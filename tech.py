@@ -18,7 +18,7 @@ import binascii
 
 print("test")
 
-wk_time = 1554432807
+wk_time = datetime.datetime(1554432807)
 
 wk_time = wk_time + datetime.timedelta(hours=9)
 
