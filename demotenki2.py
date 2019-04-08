@@ -431,6 +431,7 @@ def sc_get():
 
     # JSONで返すための辞書オブジェクト
     save = {}
+    saveline = []
 
     for i, v in enumerate(data_sc1['result']):
         # print(i, v)
@@ -454,16 +455,21 @@ def sc_get():
         print(outputtext)
         print(data_sc1['result'][i]['blocktime'])
 
-        save[i] = {
-            "ordernumber" : "1904050001",
-            "timestamp" : cstamp,
-            "status" : status
-        }
+        saveline.append = {"ordernumber":"1904050001","timestamp":cstamp,"status":status}
+
+        # save = {"blockchainitems":[saveline]}
+            # "ordernumber" : "1904050001",
+            # "timestamp" : cstamp,
+            # "status" : status
 
     # for i, (k, v) in enumerate(data_sc1['result'].items()):
     #     print(i, k, v)
 
     print(save)
+
+    print(saveline)
+
+    save = {"blockchainitems":saveline}
 
     list = data_sc1.keys()
     print(list)
