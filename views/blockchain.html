@@ -120,10 +120,16 @@
     .done(function(data){
       console.log(data);
       console.log(data.blockchainitems.length);
-      i = data.blockchainitems.length;
-      console.log(data.blockchainitems[0].ordernumber);
-      console.log(data.blockchainitems[0].status);
-      console.log(data.blockchainitems[0].timestamp);
+      m = data.blockchainitems.length;
+
+      for (var i=0; i<m; i++){
+        console.log(data.blockchainitems[i].ordernumber);
+        console.log(data.blockchainitems[i].status);
+        console.log(data.blockchainitems[i].timestamp);
+      }
+
+      
+
       log = JSON.stringify(data);
       $("#b").append('<p>' + log + '</p>');
 
