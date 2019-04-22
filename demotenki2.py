@@ -70,6 +70,10 @@ def rss2():
 def displayorder():
     return template('displayorder')
 
+@route('/blockchain/updateorder')
+def displayorder():
+    return template('updateorder')
+
 # static
 @route('/file/<filename:path>')
 def static(filename):
