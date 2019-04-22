@@ -122,16 +122,19 @@
       console.log(data.blockchainitems.length);
       m = data.blockchainitems.length;
 
-      $("#b").append('<div class="siimple-table"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">ステータス</div><div class="siimple-table-cell">登録日時</div></div></div><div class="siimple-table-body">');
+      output = '';
+
+      output = '<div class="siimple-table"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">ステータス</div><div class="siimple-table-cell">登録日時</div></div></div><div class="siimple-table-body">'
+
+      // $("#b").append('<div class="siimple-table"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">ステータス</div><div class="siimple-table-cell">登録日時</div></div></div><div class="siimple-table-body">');
 
       for (var i=0; i<m; i++){
-
-        $("#b").append('<div class="siimple-table-row"><div class="siimple-table-cell">' + data.blockchainitems[i].status + '</div><div class="siimple-table-cell">' + data.blockchainitems[i].timestamp + '</div></div>');
-
-
+        output = output + '<div class="siimple-table-row"><div class="siimple-table-cell">' + data.blockchainitems[i].status + '</div><div class="siimple-table-cell">' + data.blockchainitems[i].timestamp + '</div></div>';
       }
 
-      $("#b").append('</div></div>');
+      output = output + '</div></div>'
+
+      $("#b").append(output);
       
 
       log = JSON.stringify(data);
