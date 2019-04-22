@@ -119,9 +119,9 @@
     })
     .done(function(data){
       console.log(data);
-      console.log(data[0].ordernumber);
-      console.log(data[0].status);
-      console.log(data[0].timestamp);
+      console.log(data.blockchainitems[0].ordernumber);
+      console.log(data.blockchainitems[0].status);
+      console.log(data.blockchainitems[0].timestamp);
       log = JSON.stringify(data);
       $("#b").append('<p>' + log + '</p>');
 
