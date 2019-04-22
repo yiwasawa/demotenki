@@ -66,6 +66,10 @@ def mobile():
 def rss2():
     return template('rss2')
 
+@route('/blockchain/displayorder')
+def displayorder():
+    return template('displayorder')
+
 # static
 @route('/file/<filename:path>')
 def static(filename):
