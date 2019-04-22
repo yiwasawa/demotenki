@@ -481,7 +481,7 @@ def sc_listitems():
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 @route('/sc_listitems_aws')
-def sc_listitems():
+def sc_listitems_aws():
 
     headers = {'Authorization':AWS_BASIC_AUTH}
     payload = {'method':'liststreamitems','params':['demo',False,999]}
