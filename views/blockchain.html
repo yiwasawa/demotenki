@@ -52,6 +52,23 @@
     <div id="a">
     </div>
 
+    <div class="siimple-h3">注文ステータス取得</div>
+
+    <div class="siimple-form">
+      <div class="siimple-form-field">
+        <div class="siimple-form-field-label">注文番号（YYMMDD+任意の4桁）</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="sc_ordernumber_2" maxlength="10">
+
+      </div>
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="sc_ordernumbersendbutton">送信</div>
+      </div>
+    </div>
+    
+    <div id="b">
+    </div>
+
+
 
   </div>
 </body>
@@ -72,6 +89,29 @@
     $.ajax({
       crossDomain: true,
       url: "https://13.113.245.130/sc_updatestatus",
+      method: "POST",
+      data: JSON.stringify(sendScript),
+      contentType: 'application/json',
+      dataType: "json"
+    })
+    .done(function(data){
+      console.log(data);
+      log = JSON.stringify(data);
+      $("#a").append('<p>' + log + '</p>');
+
+    });
+  });
+
+  $("#sc_ordernumbersendbutton").on("click", function(){
+
+    //送信データを準備
+    var sendScript = {};
+    sendScript.ordernumber = $("#sc_ordernumber_2").val();
+    console.log(sendScript);
+
+    $.ajax({
+      crossDomain: true,
+      url: "https://13.113.245.130/getorderstatus",
       method: "POST",
       data: JSON.stringify(sendScript),
       contentType: 'application/json',

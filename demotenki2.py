@@ -514,6 +514,46 @@ def sc_listitems_aws():
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 
+@route('/getorderstatus', method='POST')
+def getorderstatus():
+
+    try:
+        body = json.load(request.body)
+    except:
+        raise ValueError
+
+    str_ordernumber = body["ordernumber"]
+
+    headers = {'Authorization':AWS_BASIC_AUTH}
+    payload = {'method':'liststreamkeyitems','params':['demo',str_ordernumber,False]}
+    response_sc1 = requests.post(AWS_MULTICHAIN_ENDPOINT, data=json.dumps(payload), headers=headers)
+
+    dict_sc1 = response_sc1.json()
+
+    dict_save = {}
+    list_saveline = []
+
+    for i, v in enumerate(dict_sc1['result']):
+        # 注文番号
+        str_ordernumber = dict_sc1['result'][i]['key']
+
+        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+        int_timestamp = int(dict_sc1['result'][i]['blocktime'])
+        datetime_timestamp = datetime.datetime.fromtimestamp(int_timestamp)
+        datetime_timestamp = datetime_timestamp + datetime.timedelta(hours=9)
+        str_timestamp = datetime_timestamp.strftime("%Y/%m/%d %H:%M:%S")
+
+        # ステータス：16進数からUTF-8に変換
+        str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
+
+        # 注文番号、タイムスタンプ、ステータスを配列に格納
+        list_saveline.append({"ordernumber":str_ordernumber,"timestamp":str_timestamp,"status":str_status})
+
+    # 返却用の辞書型に格納
+    dict_save = {"blockchainitems":list_saveline}
+
+    return json.dumps(dict_save, ensure_ascii=False, indent=4)
+
 @route('/sc_updatestatus', method='POST')
 def sc_updatestatus():
 
