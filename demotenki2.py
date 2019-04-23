@@ -432,7 +432,7 @@ def getmultibalances():
 def sc_get():
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'liststreamkeyitems','params':['demo','1904050001',False]}
+    payload = {'method':'liststreamkeyitems','params':[DEFSTREAM,'1904050001',False]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
@@ -463,7 +463,7 @@ def sc_get():
 def sc_listitems():
 
     headers = {'apikey':MULTIAPIKEY}
-    payload = {'method':'liststreamitems','params':['demo',False,999]}
+    payload = {'method':'liststreamitems','params':[DEFSTREAM,False,999]}
     response_sc1 = requests.post(MULTIENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
@@ -496,7 +496,7 @@ def sc_listitems():
 def sc_listitems_aws():
 
     headers = {'Authorization':AWS_BASIC_AUTH}
-    payload = {'method':'liststreamitems','params':['demo',False,999]}
+    payload = {'method':'liststreamitems','params':[DEFSTREAM,False,999]}
     response_sc1 = requests.post(AWS_MULTICHAIN_ENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
@@ -537,7 +537,7 @@ def getorderstatus():
     str_ordernumber = body["ordernumber"]
 
     headers = {'Authorization':AWS_BASIC_AUTH}
-    payload = {'method':'liststreamkeyitems','params':['demo',str_ordernumber,False]}
+    payload = {'method':'liststreamkeyitems','params':[DEFSTREAM,str_ordernumber,False]}
     response_sc1 = requests.post(AWS_MULTICHAIN_ENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
@@ -574,7 +574,7 @@ def sc_updatestatus():
     except:
         raise ValueError
     
-    str_stream = "demo"
+    str_stream = DEFSTREAM
     str_ordernumber = body["ordernumber"]
     str_status = body["status"]
 
@@ -598,7 +598,7 @@ def sc_updatestatus():
 def getorderlist_aws():
 
     headers = {'Authorization':AWS_BASIC_AUTH}
-    payload = {'method':'liststreamkeys','params':['demo','*',True,999]}
+    payload = {'method':'liststreamkeys','params':[DEFSTREAM,'*',True,999]}
     response_sc1 = requests.post(AWS_MULTICHAIN_ENDPOINT, data=json.dumps(payload), headers=headers)
 
     dict_sc1 = response_sc1.json()
