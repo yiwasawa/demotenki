@@ -51,7 +51,7 @@
       m = data.blockchainorders.length;
 
       output = '';
-      output = '<div class="siimple-content--small"><div class="siimple-table siimple-table--striped"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">注文番号</div><div class="siimple-table-cell">ステータス</div><div class="siimple-table-cell">日時</div></div></div><div class="siimple-table-body">'
+      output = '<div class="siimple-content--medium"><div class="siimple-table siimple-table--striped"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">注文番号</div><div class="siimple-table-cell">ステータス</div><div class="siimple-table-cell">日時</div></div></div><div class="siimple-table-body">'
 
       for (var i=0; i<m; i++){
         output = output + '<div class="siimple-table-row"><div class="siimple-table-cell">' + data.blockchainorders[i].ordernumber + '</div><div class="siimple-table-cell"><a href="https://maas-dashboard.cfapps.eu10.hana.ondemand.com/?instance=d8248f83-53db-4ee0-a567-7730e77f1182#/transactions/' + data.blockchainorders[i].txid + '" class="siimple-link">' + data.blockchainorders[i].laststatus + '</a></div><div class="siimple-table-cell">' + data.blockchainorders[i].lasttimestamp + '</div></div>';
