@@ -588,6 +588,54 @@ def sc_updatestatus():
     return data_multi1
 
 
+
+
+@route('/getorderlist_aws')
+def getorderlist_aws():
+
+    headers = {'Authorization':AWS_BASIC_AUTH}
+    payload = {'method':'liststreamkeys','params':['demo','*',999]}
+    response_sc1 = requests.post(AWS_MULTICHAIN_ENDPOINT, data=json.dumps(payload), headers=headers)
+
+    dict_sc1 = response_sc1.json()
+
+    dict_save = {}
+    list_saveline = []
+
+    for i, v in enumerate(dict_sc1['result']):
+        # 注文番号
+        str_ordernumber = dict_sc1['result'][i]['key']
+
+        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+        int_firsttimestamp = int(dict_sc1['result'][i]['blocktime'])
+        datetime_firsttimestamp = datetime.datetime.fromtimestamp(int_firsttimestamp)
+        datetime_firsttimestamp = datetime_firsttimestamp + datetime.timedelta(hours=9)
+        str_firsttimestamp = datetime_firsttimestamp.strftime("%Y/%m/%d %H:%M:%S")
+
+        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+        int_lasttimestamp = int(dict_sc1['result'][i]['blocktime'])
+        datetime_lasttimestamp = datetime.datetime.fromtimestamp(int_lasttimestamp)
+        datetime_lasttimestamp = datetime_lasttimestamp + datetime.timedelta(hours=9)
+        str_lasttimestamp = datetime_lasttimestamp.strftime("%Y/%m/%d %H:%M:%S")
+
+        # 初期ステータス：16進数からUTF-8に変換
+        str_firststatus = binascii.unhexlify(dict_sc1['result'][i]['first']['data']).decode('utf-8')
+        str_laststatus = binascii.unhexlify(dict_sc1['result'][i]['last']['data']).decode('utf-8')
+
+        # 注文番号、タイムスタンプ、ステータスを配列に格納
+        list_saveline.append({"ordernumber":str_ordernumber,"firsttimestamp":str_firsttimestamp,"lasttimestamp":str_lasttimestamp,"firststatus":str_firststatus,"laststatus":str_firststatus})
+
+    # 返却用の辞書型に格納
+    dict_save = {"blockchainitems":list_saveline}
+
+    return json.dumps(dict_save, ensure_ascii=False, indent=4)
+
+
+
+
+
+
+
 # bottleのデモWebサーバー
 # run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 # run(host='13.113.245.130', port=80, debug=True, reloader=True)
