@@ -626,8 +626,11 @@ def getorderlist_aws():
         str_firststatus = binascii.unhexlify(dict_sc1['result'][i]['first']['data']).decode('utf-8')
         str_laststatus = binascii.unhexlify(dict_sc1['result'][i]['last']['data']).decode('utf-8')
 
+        str_lastblockhash = dict_sc1['result'][i]['last']['blockhash']
+        str_lasttxid = dict_sc1['result'][i]['last']['txid']
+
         # 注文番号、タイムスタンプ、ステータスを配列に格納
-        list_saveline.append({"ordernumber":str_ordernumber,"laststatus":str_laststatus,"lasttimestamp":str_lasttimestamp})
+        list_saveline.append({"ordernumber":str_ordernumber,"laststatus":str_laststatus,"lasttimestamp":str_lasttimestamp,"blockhash":str_lastblockhash,"txid":str_lasttxid})
 
     # 返却用の辞書型に格納
     dict_save = {"blockchainorders":list_saveline}
