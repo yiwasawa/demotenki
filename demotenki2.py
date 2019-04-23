@@ -71,8 +71,12 @@ def displayorder():
     return template('displayorder')
 
 @route('/blockchain/updateorder')
-def displayorder():
+def updateorder():
     return template('updateorder')
+
+@route('/blockchain/displayorderlist')
+def displayorderlist():
+    return template('displayorderlist')
 
 # static
 @route('/file/<filename:path>')
