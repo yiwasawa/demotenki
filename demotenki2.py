@@ -602,6 +602,8 @@ def getorderlist_aws():
     dict_save = {}
     list_saveline = []
 
+    print(dict_sc1['result'])
+
     for i, v in enumerate(dict_sc1['result']):
         # 注文番号
         str_ordernumber = dict_sc1['result'][i]['key']
