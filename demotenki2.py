@@ -610,17 +610,24 @@ def getorderlist_aws():
         # 注文番号
         str_ordernumber = dict_sc1['result'][i]['key']
 
-        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
-        int_firsttimestamp = int(dict_sc1['result'][i]['first']['blocktime'])
-        datetime_firsttimestamp = datetime.datetime.fromtimestamp(int_firsttimestamp)
-        datetime_firsttimestamp = datetime_firsttimestamp + datetime.timedelta(hours=9)
-        str_firsttimestamp = datetime_firsttimestamp.strftime("%Y/%m/%d %H:%M:%S")
 
-        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
-        int_lasttimestamp = int(dict_sc1['result'][i]['last']['blocktime'])
-        datetime_lasttimestamp = datetime.datetime.fromtimestamp(int_lasttimestamp)
-        datetime_lasttimestamp = datetime_lasttimestamp + datetime.timedelta(hours=9)
-        str_lasttimestamp = datetime_lasttimestamp.strftime("%Y/%m/%d %H:%M:%S")
+        if dict_sc1['result'][i]['first']['confirmations'] != 0:
+            # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+            int_firsttimestamp = int(dict_sc1['result'][i]['first']['blocktime'])
+            datetime_firsttimestamp = datetime.datetime.fromtimestamp(int_firsttimestamp)
+            datetime_firsttimestamp = datetime_firsttimestamp + datetime.timedelta(hours=9)
+            str_firsttimestamp = datetime_firsttimestamp.strftime("%Y/%m/%d %H:%M:%S")
+        else:
+            str_firsttimestamp = ''
+
+        if dict_sc1['result'][i]['last']['confirmations'] != 0:
+            # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
+            int_lasttimestamp = int(dict_sc1['result'][i]['last']['blocktime'])
+            datetime_lasttimestamp = datetime.datetime.fromtimestamp(int_lasttimestamp)
+            datetime_lasttimestamp = datetime_lasttimestamp + datetime.timedelta(hours=9)
+            str_lasttimestamp = datetime_lasttimestamp.strftime("%Y/%m/%d %H:%M:%S")
+        else:
+            str_lasttimestamp = ''
 
         # 初期ステータス：16進数からUTF-8に変換
         str_firststatus = binascii.unhexlify(dict_sc1['result'][i]['first']['data']).decode('utf-8')
