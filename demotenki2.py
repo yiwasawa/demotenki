@@ -604,33 +604,11 @@ def getorderlist_aws():
 
     print(dict_sc1['result'])
 
-    for i, v in enumerate(dict_sc1['result']):
-        # 注文番号
-        str_ordernumber = dict_sc1['result'][i]['key']
+    return null
 
-        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
-        int_firsttimestamp = int(dict_sc1['result'][i]['blocktime'])
-        datetime_firsttimestamp = datetime.datetime.fromtimestamp(int_firsttimestamp)
-        datetime_firsttimestamp = datetime_firsttimestamp + datetime.timedelta(hours=9)
-        str_firsttimestamp = datetime_firsttimestamp.strftime("%Y/%m/%d %H:%M:%S")
+    
 
-        # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
-        int_lasttimestamp = int(dict_sc1['result'][i]['blocktime'])
-        datetime_lasttimestamp = datetime.datetime.fromtimestamp(int_lasttimestamp)
-        datetime_lasttimestamp = datetime_lasttimestamp + datetime.timedelta(hours=9)
-        str_lasttimestamp = datetime_lasttimestamp.strftime("%Y/%m/%d %H:%M:%S")
 
-        # 初期ステータス：16進数からUTF-8に変換
-        str_firststatus = binascii.unhexlify(dict_sc1['result'][i]['first']['data']).decode('utf-8')
-        str_laststatus = binascii.unhexlify(dict_sc1['result'][i]['last']['data']).decode('utf-8')
-
-        # 注文番号、タイムスタンプ、ステータスを配列に格納
-        list_saveline.append({"ordernumber":str_ordernumber,"firsttimestamp":str_firsttimestamp,"lasttimestamp":str_lasttimestamp,"firststatus":str_firststatus,"laststatus":str_firststatus})
-
-    # 返却用の辞書型に格納
-    dict_save = {"blockchainitems":list_saveline}
-
-    return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 
 
