@@ -633,8 +633,12 @@ def getorderlist_aws():
         str_firststatus = binascii.unhexlify(dict_sc1['result'][i]['first']['data']).decode('utf-8')
         str_laststatus = binascii.unhexlify(dict_sc1['result'][i]['last']['data']).decode('utf-8')
 
-        str_lastblockhash = dict_sc1['result'][i]['last']['blockhash']
-        str_lasttxid = dict_sc1['result'][i]['last']['txid']
+        if dict_sc1['result'][i]['last']['confirmations'] != 0:
+            str_lastblockhash = dict_sc1['result'][i]['last']['blockhash']
+            str_lasttxid = dict_sc1['result'][i]['last']['txid']
+        else:
+            str_lastblockhash = ''
+            str_lasttxid = ''
 
         # 注文番号、タイムスタンプ、ステータスを配列に格納
         list_saveline.append({"ordernumber":str_ordernumber,"laststatus":str_laststatus,"lasttimestamp":str_lasttimestamp,"blockhash":str_lastblockhash,"txid":str_lasttxid})
