@@ -626,7 +626,7 @@ def getorderlist_aws():
         list_saveline.append({"ordernumber":str_ordernumber,"laststatus":str_laststatus,"lasttimestamp":str_lasttimestamp})
 
     # 返却用の辞書型に格納
-    dict_save = {"blockchainitems":list_saveline}
+    dict_save = {"blockchainorders":list_saveline}
 
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
