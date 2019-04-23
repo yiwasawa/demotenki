@@ -604,9 +604,9 @@ def getorderlist_aws():
 
     print(dict_sc1['result'])
 
-    return null
+    return dict_sc1
 
-    
+
 
 
 
