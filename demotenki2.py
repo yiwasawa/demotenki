@@ -607,13 +607,13 @@ def getorderlist_aws():
         str_ordernumber = dict_sc1['result'][i]['key']
 
         # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
-        int_firsttimestamp = int(dict_sc1['result'][i]['blocktime'])
+        int_firsttimestamp = int(dict_sc1['result'][i]['first']['blocktime'])
         datetime_firsttimestamp = datetime.datetime.fromtimestamp(int_firsttimestamp)
         datetime_firsttimestamp = datetime_firsttimestamp + datetime.timedelta(hours=9)
         str_firsttimestamp = datetime_firsttimestamp.strftime("%Y/%m/%d %H:%M:%S")
 
         # タイムスタンプ：UNIXタイムスタンプを抽出し、日本時間化＆書式変換
-        int_lasttimestamp = int(dict_sc1['result'][i]['blocktime'])
+        int_lasttimestamp = int(dict_sc1['result'][i]['last']['blocktime'])
         datetime_lasttimestamp = datetime.datetime.fromtimestamp(int_lasttimestamp)
         datetime_lasttimestamp = datetime_lasttimestamp + datetime.timedelta(hours=9)
         str_lasttimestamp = datetime_lasttimestamp.strftime("%Y/%m/%d %H:%M:%S")
