@@ -483,9 +483,11 @@ def sc_listitems():
 
         # ステータス：16進数からUTF-8に変換
         str_status = binascii.unhexlify(dict_sc1['result'][i]['data']).decode('utf-8')
+        
+        str_txid = dict_sc1['result'][i]['txid']
 
         # 注文番号、タイムスタンプ、ステータスを配列に格納
-        list_saveline.append({"ordernumber":str_ordernumber,"timestamp":str_timestamp,"status":str_status})
+        list_saveline.append({"ordernumber":str_ordernumber,"timestamp":str_timestamp,"status":str_status,"txid":str_txid})
 
     # 返却用の辞書型に格納
     dict_save = {"blockchainitems":list_saveline}
