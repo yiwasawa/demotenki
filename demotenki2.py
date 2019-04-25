@@ -652,7 +652,7 @@ def getorderlist_aws():
     # 返却用の辞書型に格納
     dict_save = {"blockchainorders":list_saveline}
 
-    dict_save = sorted(dict_save.items(), key=lambda x:x[0][2], reverse=False)
+    # dict_save = sorted(dict_save.items(), key=lambda x:x[0][2], reverse=False)
 
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
