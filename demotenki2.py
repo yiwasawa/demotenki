@@ -652,6 +652,8 @@ def getorderlist_aws():
     # 返却用の辞書型に格納
     dict_save = {"blockchainorders":list_saveline}
 
+    dict_save_sorted = sorted(dict_save, key=lambda x:x['lasttimestamp'])
+
     return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 
