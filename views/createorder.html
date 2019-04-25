@@ -60,6 +60,14 @@
 
 <script type="text/javascript">
 
+  var toDoubleDigits = function(num) {
+  num += "";
+  if (num.length === 1) {
+    num = "0" + num;
+  }
+ return num;     
+  };
+
 
   //ブロックチェーン2
   //送信ボタン
@@ -70,15 +78,18 @@
 
     var dd = new Date();
     var YYYY = dd.getFullYear();
-    var MM = dd.getMonth()+1;
-    var DD = dd.getDate();
-    var hh = dd.getHours();
-    var mm = dd.getMinutes();
-    var ss = dd.getSeconds();
+    var MM = toDoubleDigits(dd.getMonth() + 1);
+
+
+    var DD = toDoubleDigits(dd.getDate());
+
+    var ho = toDoubleDigits(dd.getHours());
+    var mi = toDoubleDigits(dd.getMinutes());
+    var se = toDoubleDigits(dd.getSeconds());
 
 
     var ymdhms = 'ORD';
-    ymdhms += YYYY.toString() + MM.toString() + DD.toString() + hh.toString() + mm.toString() + ss.toString();
+    ymdhms += YYYY.toString() + MM.toString() + DD.toString() + ho.toString() + mi.toString() + se.toString();
 
     sendScript.ordernumber = ymdhms;
     sendScript.status = "312ee6b3a8e69687";
