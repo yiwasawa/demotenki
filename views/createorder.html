@@ -1,0 +1,107 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.3.0/dist/siimple.min.css">
+
+
+
+
+<head>
+  <title>注文画面</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  
+
+
+      
+      <div class="siimple-navbar">
+          <a class="siimple-navbar-title"><div class="siimple-h2">ブロックチェーンデモ（顧客向けアプリ）</div></a>
+          <div class="siimple--float-right">
+              <a class="siimple-navbar-item"><a href="../blockchain/displayorderlist" class="siimple-link">注文</a></a>
+              <a class="siimple-navbar-item"><a href="../blockchain/displayorder" class="siimple-link">注文ステータス照会</a></a>
+            </div>
+      </div>
+
+      <div class="siimple-content--medium">
+      <div class="siimple-h3">注文画面</div>
+      <p class="siimple-p">
+          注文できます。
+      </p>
+      <img src="http://13.113.245.130/file/img/barcode_reader.png" width="240">
+  
+    <div class="siimple-form">
+      <div class="siimple-form-field">
+        <div class="siimple-form-field-label">注文番号（YYMMDD+任意の4桁）</div>
+        <input type="text" class="siimple-input siimple-input--fluid" id="sc_ordernumber" maxlength="10">
+
+        <div class="siimple-form-field-label">ステータス</div>
+        <select class="siimple-select" id="sc_status">
+            <option value="312ee6b3a8e69687">1.注文</option>
+            <option value="322ee6b3a8e69687e58f97e4bb98e6b888">2.注文受付済</option>
+            <option value="332ee7b584e7ab8be6898be9858de4b8ad">3.組立手配中</option>
+            <option value="342ee7b584e7ab8be4b8ad">4.組立中</option>
+            <option value="352ee9858de98081e6898be9858de4b8ad">5.配送手配中</option>
+            <option value="362ee9858de98081e4b8ad">6.配送中</option>
+            <option value="372ee9858de98081e5ae8ce4ba86">7.配送完了</option>
+        </select>
+
+      </div>
+      <div class="siimple-form-field">
+        <div class="siimple-btn siimple-btn--blue" id="sc_statussendbutton">送信</div>
+      </div>
+    </div> 
+
+    <div id="a">
+    </div>
+
+
+  </div>
+</body>
+
+<script type="text/javascript">
+
+
+  //ブロックチェーン2
+  //送信ボタン
+  $("#sc_statussendbutton").on("click", function(){
+
+    //送信データを準備
+    var sendScript = {};
+
+    var dd = new Date();
+    var YYYY = dd.getFullYear();
+    var MM = dd.getMonth()+1;
+    var DD = dd.getDate();
+    var hh = dd.getHours();
+    var mm = dd.getMinutes();
+    var ss = dd.getSeconds();
+
+
+    var ymdhms = "";
+    ymdhms = YYYY + MM + DD + hh + mm + ss;
+
+    sendScript.ordernumber = ymdhms;
+    sendScript.status = "312ee6b3a8e69687";
+    console.log(sendScript);
+
+    $.ajax({
+      crossDomain: true,
+      url: "../sc_updatestatus",
+      method: "POST",
+      data: JSON.stringify(sendScript),
+      contentType: 'application/json',
+      dataType: "json"
+    })
+    .done(function(data){
+      console.log(data);
+      log = JSON.stringify(data);
+      // $("#a").append('<p>' + log + '</p>');
+      $("#a").append('<div class="siimple-h4">注文のステータスを登録しました</div>');
+
+    });
+  });
+
+
+
+
+</script>
