@@ -36,6 +36,14 @@
 
 <script type="text/javascript">
 
+  function compare( a, b ){
+    var r = 0;
+    if( a.blockchainorders[i].lasttimestamp < b.blockchainorders[i].lasttimestamp ){ r = -1; }
+    else if( a.blockchainorders[i].lasttimestamp > b.blockchainorders[i].lasttimestamp ){ r = 1; }
+
+    return r;
+  }
+
   $(document).ready(function(){
 
     $.ajax({
@@ -49,6 +57,8 @@
       console.log(data);
       console.log(data.blockchainorders.length);
       m = data.blockchainorders.length;
+
+      data.sort(compare)
 
       output = '';
       output = '<div class="siimple-content--medium"><div class="siimple-table siimple-table--striped"><div class="siimple-table-header"><div class="siimple-table-row"><div class="siimple-table-cell">注文番号</div><div class="siimple-table-cell">ステータス</div><div class="siimple-table-cell">日時</div></div></div><div class="siimple-table-body">'
