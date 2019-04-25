@@ -649,12 +649,14 @@ def getorderlist_aws():
         # 注文番号、タイムスタンプ、ステータスを配列に格納
         list_saveline.append({"ordernumber":str_ordernumber,"laststatus":str_laststatus,"lasttimestamp":str_lasttimestamp,"blockhash":str_lastblockhash,"txid":str_lasttxid})
 
+    list_saveline = sorted(list_saveline, key=lambda x:x[2], reverse=True)
+   
     # 返却用の辞書型に格納
     dict_save = {"blockchainorders":list_saveline}
 
-    dict_save_sorted = sorted(dict_save, key=lambda x:x['lasttimestamp'])
 
-    return json.dumps(dict_save_sorted, ensure_ascii=False, indent=4)
+
+    return json.dumps(dict_save, ensure_ascii=False, indent=4)
 
 
 
