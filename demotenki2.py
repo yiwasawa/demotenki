@@ -654,7 +654,7 @@ def getorderlist_aws():
 
     dict_save_sorted = sorted(dict_save, key=lambda x:x['lasttimestamp'])
 
-    return json.dumps(dict_save, ensure_ascii=False, indent=4)
+    return json.dumps(dict_save_sorted, ensure_ascii=False, indent=4)
 
 
 
