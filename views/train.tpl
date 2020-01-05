@@ -43,7 +43,7 @@
 
   <div class="siimple-content--small">
 
-    <div class="siimple-h2">通勤時刻表（廃止）</div>
+    <div class="siimple-h2">通勤時刻表（旧）</div>
 
     <p class="siimple-p"><a href="./" class="siimple-link">表紙</a></p>
 
